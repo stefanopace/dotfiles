@@ -1,0 +1,44 @@
+alias cdbox='cd ~/projects/devbox'
+alias cddev='cd ~/projects/devbox/nap/htdocs/dev'
+alias cdprojects='cd ~/projects'
+alias cdtests='cd ~/projects/tests/ci-tests'
+alias cdfixtures='cd ~/projects/tests/tests-fixtures'
+alias cdeploy='cd ~/Scrivania/utilities/deploy'
+alias cdwip='cd ~/Scrivania/work-in-progress'
+alias rungrunt='docker-compose -f docker-compose.grunt.yml up grunt'
+alias svnbranches='svn list http://svn.bakecadev.it/bakeca/branches -v | grep stefano. | sort | wordn 1 0'
+alias runjenkins='docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts'
+
+svn_branch () {
+  svn info . &> /dev/null && svn info | grep ^URL: | sed -E 's/^URL: //' | sed -E 's/^http[s]{0,1}:\/\/[a-zA-Z\.0-9-]+\///' | sed -E 's/^bakeca\/branches\///'
+}
+
+b () {
+    SVNBRANCH=`svn_branch`
+    if [[ -n $SVNBRANCH ]];
+      then echo -e "\033[00m\033[02m$SVNBRANCH\033[00m";
+    else echo "not svn repo";
+    fi;
+}
+
+dockerexec-itcontainerbash(){
+    docker exec -it $1 bash
+}
+
+rdev="http://svn.bakecadev.it/bakeca/branches/dev"
+rstage="http://svn.bakecadev.it/bakeca/branches/stage"
+rtrunk="http://svn.bakecadev.it/bakeca/trunk"
+
+svnnewbranch(){
+  if [ -z "$2" ]
+  then
+    echo "sintassi: svn-new-branch <nome-branch> <link-trello>"
+  else
+    svn cp $rdev $rdev-$1 -m "$2";
+    svn switch $rdev-$1;
+  fi
+}
+
+devb(){
+  echo $rdev-$1
+}

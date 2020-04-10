@@ -1,0 +1,15 @@
+alias ls='ls --color=auto'
+alias ll='ls -lahFtr'
+alias la='ls -A'
+
+alias each='xargs -L1 -I{}'
+alias gatto='cat'
+alias meno='less'
+alias reloadbashrc='source ~/.bashrc'
+alias jsoncat='python -m json.tool'
+alias clip="tee /dev/tty | perl -pe 'chomp if eof' | xclip -sel clip"
+alias open='xdg-open'
+
+d () {
+    echo -e "\033[1m\033[34m`pwd | sed "s|/home/stefano|~|"`\033[00m"
+}

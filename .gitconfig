@@ -1,0 +1,12 @@
+[user]
+	email = stefanopace01@gmail.com
+	name = Stefano Pace
+[core]
+	editor = vim
+[alias]
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
