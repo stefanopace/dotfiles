@@ -157,3 +157,4 @@ bar {
 }
 
 exec_always feh --bg-scale ~/wallpaper/cat.jpg 
+new_window pixel 1
