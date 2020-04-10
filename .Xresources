@@ -5,4 +5,4 @@ URxvt.foreground: white
 URxvt.font: xft:Fira Code:size=12:antialias=true:autohint=true
 URxvt.scrollBar: false
 URxvt.transparent: true
-URxvt.shading: 15
+URxvt.shading: 10

@@ -156,5 +156,5 @@ bar {
         status_command i3status
 }
 
-exec_always feh --bg-scale ~/wallpaper/cat.jpg 
+exec_always feh --bg-scale https://source.unsplash.com/1920x1080
 new_window pixel 1
