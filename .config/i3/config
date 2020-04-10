@@ -158,3 +158,8 @@ bar {
 
 exec_always feh --bg-scale https://source.unsplash.com/1920x1080
 new_window pixel 1
+
+# bindings for volume control
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 5+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 5- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
