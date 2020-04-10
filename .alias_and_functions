@@ -9,6 +9,7 @@ alias reloadbashrc='source ~/.bashrc'
 alias jsoncat='python -m json.tool'
 alias clip="tee /dev/tty | perl -pe 'chomp if eof' | xclip -sel clip"
 alias open='xdg-open'
+alias readxresources='xrdb -merge ~/.Xresources'
 
 d () {
     echo -e "\033[1m\033[34m`pwd | sed "s|/home/stefano|~|"`\033[00m"
