@@ -13,3 +13,15 @@ alias open='xdg-open'
 d () {
     echo -e "\033[1m\033[34m`pwd | sed "s|/home/stefano|~|"`\033[00m"
 }
+
+roll () {
+  dice=('⚀' '⚁' '⚂' '⚃' '⚄' '⚅')
+  roll1=$(( $RANDOM % 6 ))
+  roll2=$(( $RANDOM % 6 ))
+  roll3=$(( $RANDOM % 6 ))
+  sum=$(( $roll1 + $roll2 + $roll3 + 3 ))
+  if [ $sum == 18 ]; then printf '\033[5m'; fi
+  printf "${dice[$roll1]} ${dice[$roll2]} ${dice[$roll3]}"
+  if [ $sum == 18 ]; then printf '\033[25m'; fi
+  echo
+}
