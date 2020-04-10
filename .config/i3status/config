@@ -26,8 +26,8 @@ order += "tztime local"
 
 
 volume master {
-        format = "  %volume "
-        format_muted = "  "
+        format = "  %volume "
+        format_muted = "  "
         device = "default"
         mixer = "Master"
         mixer_idx = 0
