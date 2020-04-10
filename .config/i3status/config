@@ -7,6 +7,7 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
+        separator = ""
         colors = true
         interval = 5
         color_good = "#ffffff"
@@ -25,22 +26,25 @@ order += "tztime local"
 
 
 volume master {
-        format = " %volume"
-        format_muted = ""
+        format = "  %volume "
+        format_muted = "  "
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }
 
 wireless _first_ {
-        format_up = "%quality %essid"
+        format_up = " %quality %essid "
         format_down = ""
 }
 
 ethernet _first_ {
-        format_up = "%speed"
+        format_up = " %speed "
         format_down = ""
 }
 
 battery all {
-        format = "%status %percentage %remaining"
+        format = " %status %percentage %remaining "
         status_full = ''
         status_bat = ''
         status_chr = ''
@@ -50,24 +54,24 @@ battery all {
 }
 
 disk "/" {
-        format = " %avail"
+        format = "  %avail "
         low_threshold = 15
 	threshold_type = gbytes_avail
         prefix_type = binary
 }
 
 cpu_usage {
-        format = " %usage"
+        format = "  %usage "
         max_threshold = 75
 	degraded_threshold = 25
 }
 
 memory {
-        format = " %percentage_used"
+        format = "  %percentage_used "
         threshold_degraded = "20%"
         threshold_critical = "10%"
 }
 
 tztime local {
-        format = " %Y-%m-%d %H:%M:%S"
+        format = "  %Y-%m-%d %H:%M:%S "
 }
