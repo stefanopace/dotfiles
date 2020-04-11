@@ -156,7 +156,7 @@ bar {
         status_command i3status
 }
 
-exec_always feh --bg-scale https://source.unsplash.com/1920x1080
+exec_always feh --bg-scale ~/wallpaper/cat.jpg
 new_window pixel 1
 
 # bindings for volume control
