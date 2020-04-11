@@ -1,0 +1,10 @@
+.prompt ~/.prompt
+.office_alias_and_functions ~/.office_alias_and_functions
+.inputrc ~/.inputrc
+.bashrc ~/.bashrc
+.alias_and_functions ~/.alias_and_functions
+.gitconfig ~/.gitconfig
+.config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+.config/i3status/config ~/.config/i3status/config
+.config/i3/config ~/.config/i3/config
+.vimrc ~/.vimrc 
