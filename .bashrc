@@ -10,6 +10,7 @@ source ~/.office_alias_and_functions
 source ~/.prompt
 
 export PATH=$PATH:/home/stefano/Scrivania/utilities/tools/bin
+export PATH=$PATH:/home/stefano/tools/bin
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /usr/share/bash-completion/completions/fzf ] && source /usr/share/bash-completion/completions/fzf
