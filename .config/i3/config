@@ -157,7 +157,7 @@ bar {
 }
 
 exec compton
-exec_always feh --bg-scale ~/wallpaper/cat.jpg
+exec_always feh --bg-scale ~/.wallpaper.jpg
 new_window pixel 1
 
 # bindings for volume control
