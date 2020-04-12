@@ -2,6 +2,8 @@ alias ls='ls --color=auto'
 alias ll='ls -lahFtr'
 alias la='ls -A'
 
+alias cdow='cd ~/downloads; d'
+
 alias each='xargs -L1 -I{}'
 alias gatto='cat'
 alias meno='less'

@@ -1,4 +1,4 @@
-#sudo apt install $(cat programs | tr "\n" " ")
+sudo apt install $(cat programs | tr "\n" " ")
 
 while read link; do
   dir=$(echo $link | sed -n -r "s|[^ ]+ ([^ ]+)/[^ ]+$|\1|p" | sed "s|~|$HOME|")
