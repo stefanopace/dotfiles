@@ -5,7 +5,7 @@ else
 	echo "\[\e[92m\]";
 fi`\
 `if [ $(whoami) == "stefano" ]; then
-	echo "S";
+	echo "𐌔";
 elif [ $(whoami) == "root" ]; then
 	echo "#";
 else
