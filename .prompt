@@ -4,4 +4,11 @@ PS1='\
 else
 	echo "\[\e[92m\]";
 fi`\
-\$\[\e[00m\]\[\e[01m\]> \[\e[00m\]'
+`if [ $(whoami) == "stefano" ]; then
+	echo "S";
+elif [ $(whoami) == "root" ]; then
+	echo "#";
+else
+	echo "?";
+fi`\
+\[\e[00m\]\[\e[01m\]> \[\e[00m\]'
