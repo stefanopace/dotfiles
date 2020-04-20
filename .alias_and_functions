@@ -23,7 +23,7 @@ d () {
 }
 
 ff () {
-	fzf > /tmp/ff-buffer && $1 $(cat /tmp/ff-buffer)
+	fzf > /tmp/ff-buffer && ${1:-xdg-open} $(cat /tmp/ff-buffer)
 }
 
 roll () {
