@@ -11,4 +11,4 @@ elif [ $(whoami) == "root" ]; then
 else
 	echo "?";
 fi`\
-\[\e[00m\]\[\e[01m\]> \[\e[00m\]'
+\[\e[00m\]\[\e[01m\]>\[\e[00m\]'
