@@ -1,6 +1,6 @@
 PS1='\
 `if [ $? != 0 ]; then
-	echo "\[\e[31m\]";
+	echo "\[\e[91m\]";
 else
 	echo "\[\e[92m\]";
 fi`\
