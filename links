@@ -5,6 +5,7 @@
 .alias_and_functions ~/.alias_and_functions
 .gitconfig ~/.gitconfig
 .config/kitty/kitty.conf ~/.config/kitty/kitty.conf
+.config/kitty/colors.conf ~/.config/kitty/colors.conf
 .config/i3status/config ~/.config/i3status/config
 .config/i3/config ~/.config/i3/config
 .vimrc ~/.vimrc 
