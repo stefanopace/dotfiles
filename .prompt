@@ -1,24 +1,14 @@
-PS1='\
+PS1='\[\e[01m\]\
 `if [ $? != 0 ]; then
-	echo "\[\e[91m\]";
+	echo \[\e[31m\];
 else
-	echo "\[\e[92m\]";
+	echo \[\e[32m\];
 fi`\
 `if [ $(whoami) == "stefano" ]; then
-#	echo "·";
-	echo "‧";
-#	echo "⸗";
-#	echo "𐌔";
-#	echo "𝔖";
-#	echo "⥽";
-#	echo "∃";
-#	echo ":";
-#	echo "=";
-#	echo "§";
-#	echo "⌥";
+	echo "|>";
 elif [ $(whoami) == "root" ]; then
-	echo "#";
+	echo "+>"
 else
-	echo "?";
+	echo "?>";
 fi`\
-\[\e[00m\]\[\e[01m\]>\[\e[00m\]'
+\[\e[00m\]'
