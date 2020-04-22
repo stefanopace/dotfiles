@@ -1,15 +1,19 @@
-withColorForStatusCode () {
-	return ''
+colored_by_exit_code () {
+	if [ $? != 0 ]; then
+		echo -en '\e[31m'
+	else
+		echo -en '\e[32m'
+	fi
+	cat /dev/stdin
+	echo -en '\e[00m'
 }
-PS1='`if [ $? != 0 ]; then
-	echo -n \[\e[31m\];
-else
-	echo -n \[\e[32m\];
-fi
-if [ $(whoami) == "stefano" ]; then
-	echo -n "|>";
-elif [ $(whoami) == "root" ]; then
-	echo -n "+>";
-else
-	echo -n "?>";
-fi`\[\e[00m\]'
+arrow_based_on_user () {
+	if [ $(whoami) == "stefano" ]; then
+		echo -n "|>"
+	elif [ $(whoami) == "root" ]; then
+		echo -n "+>"
+	else
+		echo -n "?>"
+	fi
+}
+PS1='`arrow_based_on_user | colored_by_exit_code`'
