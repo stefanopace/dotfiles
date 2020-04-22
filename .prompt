@@ -1,14 +1,15 @@
-PS1='\[\e[01m\]\
-`if [ $? != 0 ]; then
-	echo \[\e[31m\];
+withColorForStatusCode () {
+	return ''
+}
+PS1='`if [ $? != 0 ]; then
+	echo -n \[\e[31m\];
 else
-	echo \[\e[32m\];
-fi`\
-`if [ $(whoami) == "stefano" ]; then
-	echo "|>";
+	echo -n \[\e[32m\];
+fi
+if [ $(whoami) == "stefano" ]; then
+	echo -n "|>";
 elif [ $(whoami) == "root" ]; then
-	echo "+>"
+	echo -n "+>";
 else
-	echo "?>";
-fi`\
-\[\e[00m\]'
+	echo -n "?>";
+fi`\[\e[00m\]'
