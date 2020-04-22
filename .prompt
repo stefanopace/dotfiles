@@ -16,4 +16,5 @@ arrow_based_on_user () {
 		echo -n "?>"
 	fi
 }
+
 PS1='`arrow_based_on_user | colored_by_exit_code`'
