@@ -12,6 +12,7 @@ alias jsoncat='python -m json.tool'
 alias clip="tee /dev/tty | perl -pe 'chomp if eof' | xclip -sel clip"
 alias open='xdg-open'
 alias readxresources='xrdb -merge ~/.Xresources'
+alias voc='cat /usr/share/dict/words | fzf'
 
 alias icat='kitty +kitten icat'
 alias i3lock='i3lock -c 001015'
@@ -36,4 +37,11 @@ roll () {
   printf "${dice[$roll1]} ${dice[$roll2]} ${dice[$roll3]}"
   if [ $sum == 18 ]; then printf '\033[25m'; fi
   echo
+}
+
+cdf() {
+  local dir
+  dir=$(find / -type d 2> /dev/null | fzf +m) &&
+  cd "$dir"
+  d
 }
