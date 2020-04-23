@@ -28,7 +28,7 @@ ff () {
 	tmp=$(fzf $@) && echo "$tmp"
 }
 
-roll () {
+rlol () {
 	local dice=('⚀ ' '⚁ ' '⚂ ' '⚃ ' '⚄ ' '⚅ ')
 	local launches=${1:-1}
 	local sum=0
