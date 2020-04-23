@@ -29,12 +29,16 @@ ff () {
 }
 
 roll () {
-	local dice=('⚀' '⚁' '⚂' '⚃' '⚄' '⚅')
-	local rolled=()
-	for roll in $(seq 1 ${1:-1}); do
-		rolled+=("${dice[$(( $RANDOM % 6 ))]}")
+	local dice=('⚀ ' '⚁ ' '⚂ ' '⚃ ' '⚄ ' '⚅ ')
+	local launches=${1:-1}
+	local sum=0
+	for roll in $(seq 1 $launches); do
+		local result=$(( $RANDOM % 6 ))
+		sum=$(( $sum + $result + 1 ))
+		echo -n "${dice[$result]}"
 	done
-	echo ${rolled[@]} ' '
+	echo
+	`exit $(( $launches * 6 - $sum ))`
 }
 
 cdf() {
