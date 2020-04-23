@@ -1,20 +1,14 @@
 colored_by_exit_code () {
-	if [ $? != 0 ]; then
-		echo -en '\e[31m'
-	else
-		echo -en '\e[32m'
-	fi
-	cat /dev/stdin
-	echo -en '\e[00m'
+	[ $? == 0 ] && color_code='32' || color_code='31'
+	echo -e "\e[${color_code}m$(cat /dev/stdin)\e[00m"
 }
+
 arrow_based_on_user () {
-	if [ $(whoami) == "stefano" ]; then
-		echo -n "|>"
-	elif [ $(whoami) == "root" ]; then
-		echo -n "+>"
-	else
-		echo -n "?>"
-	fi
+	case $(whoami) in
+		"stefano") echo "|>" ;;
+		   "root") echo "+>" ;;
+		        *) echo "??" ;;
+	esac
 }
 
 PS1='`arrow_based_on_user | colored_by_exit_code`'
