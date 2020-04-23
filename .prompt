@@ -1,5 +1,7 @@
 colored_by_exit_code () {
-	[ $? == 0 ] && color_code='32' || color_code='31'
+	local color_code
+	[ $? == 0 ] && color_code='32'\
+	            || color_code='31'
 	echo -e "\e[${color_code}m$(cat /dev/stdin)\e[00m"
 }
 
