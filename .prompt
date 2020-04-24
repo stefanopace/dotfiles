@@ -1,16 +1,6 @@
-colored_by_exit_code () {
-	local color_code
-	[ $1 == 0 ] && color_code='32'\
-	            || color_code='31'
-	echo -e "\e[${color_code}m$(cat /dev/stdin)\e[00m"
-}
-
-arrow_based_on_user () {
-	case $(whoami) in
-		"stefano") echo "|>" ;;
-		   "root") echo "+>" ;;
-		        *) echo "??" ;;
-	esac
-}
-
-PS1='`arrow_based_on_user | colored_by_exit_code $?`'
+PS1='\[\e[`[ $? == 0 ] && echo '32'\
+                       || echo '31'`m\]`case $(whoami) in
+                                            "stefano") echo "|>" ;;
+                                               "root") echo "+>" ;;
+                                                    *) echo "??" ;;
+                                        esac`\[\e[00m\]'
