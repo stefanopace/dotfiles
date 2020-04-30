@@ -1,4 +1,3 @@
-i3
 vim
 feh
 arandr
@@ -7,6 +6,7 @@ silversearcher-ag
 git
 xclip
 fonts-firacode
-kitty
 xbacklight
 compton
+font-terminus
+rxvt-unicode
