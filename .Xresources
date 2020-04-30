@@ -2,7 +2,7 @@ URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 1
 URxvt.background: black
 URxvt.foreground: white
-URxvt.font: xft:Fira Code:size=12:antialias=true:autohint=true
+URxvt.font: xft:terminus:size=14:antialias=false:autohint=true
 URxvt.scrollBar: false
 URxvt.transparent: true
-URxvt.shading: 10
+URxvt.shading: 50
