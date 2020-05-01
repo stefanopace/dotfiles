@@ -11,6 +11,7 @@ source ~/.prompt
 
 export PATH=$PATH:/home/stefano/Scrivania/utilities/tools/bin
 export PATH=$PATH:/home/stefano/tools/bin
+export PATH=$PATH:/home/stefano/apps/nodejs/bin
 
 # fix per applicazioni con gui in java in dwm (es. pycharm)
 export _JAVA_AWT_WM_NONREPARENTING=1
