@@ -10,6 +10,7 @@ alias each='xargs -L1 -I{}'
 alias gatto='cat'
 alias meno='less'
 alias reloadbashrc='source ~/.bashrc'
+alias xresourcesreload='xrdb ~/.Xresources'
 alias jsoncat='python -m json.tool'
 alias clip="tee /dev/tty | perl -pe 'chomp if eof' | xclip -sel clip"
 alias open='xdg-open'
