@@ -35,7 +35,7 @@
 *.color7:       #d3d0c8
 *.color15:      #f2f0ec
 
-*.font: xft:terminus:size=14:antialias=false:autohint=true
+*.font: xft:dina:size=14:antialias=false
 
 URxvt.cursorBlink: 1
 URxvt.cursorUnderline: 1
