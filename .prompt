@@ -1,6 +1,6 @@
 PS1='\[\e[`[ $? == 0 ] && echo '32'\
                        || echo '31'`m\]`case $(whoami) in
-                                            "stefano") echo "|>" ;;
-                                               "root") echo "+>" ;;
+                                            "stefano") echo "•>" ;;
+                                               "root") echo "#>" ;;
                                                     *) echo "??" ;;
                                         esac`\[\e[00m\]'
