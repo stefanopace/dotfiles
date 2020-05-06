@@ -40,6 +40,6 @@
 URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
 URxvt*scrollBar: false
-URxvt*transparent: true
-URxvt*shading: 50
+URxvt*transparent: false
+URxvt*shading: 80
 
