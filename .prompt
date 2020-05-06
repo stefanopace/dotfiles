@@ -1,19 +1,31 @@
 # vim syntax=sh
 PS1='`
-PATHS[1]="/home/stefano/Scrivania/work-in-progress"
-ICONS[1]="w"
-PATHS[2]="/home/stefano"
-ICONS[2]="~"
-pwd | 
-while read pwd; do 
-	str=$pwd
-	for i in $(seq 1 ${#PATHS[@]}); do 
-		str=$(echo $str | sed "s|${PATHS[$i]}|${ICONS[$i]}|"); 
-	done; 
-	echo $str;
+PATHS[1]="/home/stefano"
+ICONS[1]="~"
+PATHS[2]="~/dotfiles"
+ICONS[2]="•"
+PATHS[3]="~/projects"
+ICONS[3]="p"
+PATHS[4]="p/devbox/nap/htdocs/dev"
+ICONS[4]="B"
+PATHS[5]="~/downloads"
+ICONS[5]="↓"
+PATHS[6]="~/Scrivania/work-in-progress"
+ICONS[6]="w"
+PATHS[7]="~/Scrivania/utilities/deploy"
+ICONS[7]="↑"
+
+
+pwd |
+while read pwd; do
+  str=$pwd
+  for i in $(seq 1 ${#PATHS[@]}); do
+    str=$(echo $str | sed "s|${PATHS[$i]}|${ICONS[$i]}|");
+  done;
+  echo $str;
 done | sed -E "s|/(.)[^/]*|\1|g"`\[\e[`[ $? == 0 ] && echo '32'\
-                       || echo '31'`m\]`case $(whoami) in
-                                            "stefano") echo ">" ;;
-                                               "root") echo "#>" ;;
-                                                    *) echo "??" ;;
-                                        esac`\[\e[00m\]'
+                                                   || echo '31'`m\]`case $(whoami) in
+                                                                        "stefano") echo ">"  ;;
+                                                                           "root") echo "#>" ;;
+                                                                                *) echo "??" ;;
+                                                                    esac`\[\e[00m\]'
