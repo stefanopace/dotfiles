@@ -1,3 +1,4 @@
+# vim syntax=sh
 alias ls='ls --color=auto'
 alias ll='ls -lahFtr'
 alias la='ls -A'
@@ -37,4 +38,19 @@ cdf() {
   dir=$(find / -type d 2> /dev/null | fzf +m) &&
   cd "$dir"
   d
+}
+
+ssh-generate-for-github () {
+	if test ! -f "~/.ssh/id_rsa.pub"; then
+		if test -f "~/.ssh/id_rsa"; then
+			echo "esiste gia un file id_rsa"
+			exit 1
+		fi
+		ssh-keygen -t rsa -b 4096 -C "stefanopace01@gmail.com" -f "/home/stefano/.ssh/id_rsa"
+		chmod go-rwx ~/.ssh/id_rsa
+	fi
+	eval "$(ssh-agent -s)"
+	ssh-add ~/.ssh/id_rsa
+	cat ~/.ssh/id_rsa.pub | clip
+	echo "https://github.com/settings/keys"
 }
