@@ -1,21 +1,21 @@
 # vim syntax=sh
-PS1='`
+PS1='\[\e[96m\]`
 #PATHS[9]=^/
-#ICONS[9]=\[\e[01m\]/\[\e[00m\]/
+#ICONS[9]=\[\e[01m\]/\[\e[21m\]/
 PATHS[8]=^/home/stefano
-ICONS[8]=\[\e[01m\]~\[\e[00m\]
+ICONS[8]=\[\e[01m\]~\[\e[21m\]
 PATHS[7]=^/home/stefano/dotfiles
-ICONS[7]=\[\e[01m\]•\[\e[00m\]
+ICONS[7]=\[\e[01m\]•\[\e[21m\]
 PATHS[6]=^/home/stefano/projects
-ICONS[6]=\[\e[01m\]p\[\e[00m\]
+ICONS[6]=\[\e[01m\]j\[\e[21m\]
 PATHS[5]=^/home/stefano/projects/devbox
-ICONS[5]=❐
+ICONS[5]=\[\e[01m\]x\[\e[21m\]
 PATHS[4]=^/home/stefano/projects/devbox/nap/htdocs/dev
-ICONS[4]=ℬ
+ICONS[4]=\[\e[01m\]b\[\e[21m\]
 PATHS[3]=^/home/stefano/downloads
 ICONS[3]=↓
 PATHS[2]=^/home/stefano/Scrivania/work-in-progress
-ICONS[2]=\[\e[01m\]w\[\e[00m\]
+ICONS[2]=\[\e[01m\]w\[\e[21m\]
 PATHS[1]=^/home/stefano/Scrivania/utilities/deploy
 ICONS[1]=↑
 
@@ -28,9 +28,11 @@ while read pwd; do
     fi
   done;
   echo $pwd
-done | sed -E "s#(^(/.)|/(.))[^/]*#\2\3#g" `\[\e[` [ $? == 0 ] && echo '32'\
-                                                               || echo '31'`m\]`case $(whoami) in
-                                                                                    "stefano") echo ">"  ;;
-                                                                                       "root") echo "#>" ;;
-                                                                                            *) echo "??" ;;
-                                                                                esac `\[\e[00m\]'
+done `\[\e[95m\]\[\e[01m\]\[\e[` [ $? == 0 ] && echo '32'\
+                                     || echo '31'`m\]`case $(whoami) in
+                                                          "stefano") echo "> "  ;;
+                                                             "root") echo "#> " ;;
+                                                                  *) echo "??> " ;;
+                                                      esac `\[\e[00m\]'
+
+#| sed -E "s#(^(/.)|/(.))[^/]*#\2\3#g"#≫

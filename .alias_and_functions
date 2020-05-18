@@ -3,9 +3,9 @@ alias ls='ls --color=auto'
 alias ll='ls -lahFtr'
 alias la='ls -A'
 
-alias cdow='cd ~/downloads; d'
-alias cdot='cd ~/dotfiles; d'
-alias cdsc='cd ~/Scrivania; d'
+alias cdow='cd ~/downloads'
+alias cdot='cd ~/dotfiles'
+alias cdsc='cd ~/Scrivania'
 
 alias each='xargs -L1 -I{}'
 alias gatto='cat'
@@ -40,6 +40,9 @@ cdf() {
   d
 }
 
+title () {
+	echo -en "\x1b]0;$@\x07"
+}
 ssh-generate-for-github () {
 	if test ! -f "~/.ssh/id_rsa.pub"; then
 		if test -f "~/.ssh/id_rsa"; then
