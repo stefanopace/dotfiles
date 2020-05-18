@@ -1,45 +1,44 @@
 ! special
-*.foreground:   #d3d0c8
-*.background:   #2d2d2d
-*.cursorColor:  #d3d0c8
+*.foreground:   #f3e5f4
+*.background:   #040a1a
+*.cursorColor:  #f3e5f4
 
 ! black
-*.color0:       #2d2d2d
-*.color8:       #747369
+*.color0:       #1f122e
+*.color8:       #4b2791
 
 ! red
-*.color1:       #f2777a
-*.color9:       #f2777a
+*.color1:       #cc197f
+*.color9:       #ff3bab
 
 ! green
-*.color2:       #99cc99
-*.color10:      #99cc99
+*.color2:       #4bc05e
+*.color10:      #68ea7d
 
 ! yellow
-*.color3:       #ffcc66
-*.color11:      #ffcc66
+*.color3:       #de7d3b
+*.color11:      #fea466
 
 ! blue
-*.color4:       #6699cc
-*.color12:      #6699cc
+*.color4:       #0fa5b6
+*.color12:      #18eef0
 
 ! magenta
-*.color5:       #cc99cc
-*.color13:      #cc99cc
+*.color5:       #6e227d
+*.color13:      #9840ae
 
 ! cyan
-*.color6:       #66cccc
-*.color14:      #66cccc
+*.color6:       #0e5f59
+*.color14:      #17bdaf
 
 ! white
-*.color7:       #d3d0c8
-*.color15:      #f2f0ec
+*.color7:       #9998b8
+*.color15:      #effafe
 
 *.font: xft:terminus:size=14:antialias=false
 
 URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
 URxvt*scrollBar: false
-URxvt*transparent: true
-URxvt*shading: 40
-
+URxvt*transparent: false
+!URxvt*shading: 90
