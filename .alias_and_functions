@@ -28,6 +28,11 @@ d () {
     echo -e "\033[1m\033[34m`pwd | sed "s|/home/stefano|~|"`\033[00m"
 }
 
+cd () {
+	builtin cd "$@"
+	title `pwd`
+}
+
 ff () {
 	local tmp
 	tmp=$(fzf $@) && echo "$tmp"
