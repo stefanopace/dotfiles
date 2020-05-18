@@ -1,5 +1,6 @@
 # vim syntax=sh
-PS1='\[\e[` [ $? == 0 ] && echo '92' || echo '91' `m\]``\[\e[00m\]`
+PS1='\[\e[` [ $? == 0 ] && echo '32' || echo '31' `m\]<\[\e[00m\]`
+d
 case $(whoami) in
     "stefano") echo "> "  ;;
        "root") echo "#> " ;;
