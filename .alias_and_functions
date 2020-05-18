@@ -25,12 +25,13 @@ alias i3lock='i3lock -c 001015'
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
 
 d () {
-    echo -e "\033[1m\033[34m`pwd | sed "s|/home/stefano|~|"`\033[00m"
+    echo -e "\033[34m`pwd | sed "s|/home/stefano|~|"`\033[00m"
 }
 
 cd () {
 	builtin cd "$@"
 	title `pwd`
+	echo `d`
 }
 
 ff () {
