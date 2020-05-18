@@ -1,11 +1,7 @@
 # vim syntax=sh
-PS1='\[\e[` [ $? == 0 ] && echo '32'\
-                        || echo '31'
-`m\]`
-printf '─%.0s' $(seq 1 $(tput cols))
-`\[\e[00m\]
-`case $(whoami) in
-     "stefano") echo ">"  ;;
-        "root") echo "#>" ;;
-             *) echo "??>" ;;
- esac `'
+PS1='\[\e[` [ $? == 0 ] && echo '92' || echo '91' `m\]``\[\e[00m\]`
+case $(whoami) in
+    "stefano") echo "> "  ;;
+       "root") echo "#> " ;;
+            *) echo "??> ";;
+esac `'

@@ -4,36 +4,36 @@
 *.cursorColor:  #f3e5f4
 
 ! black
-*.color0:       #1f122e
-*.color8:       #4b2791
+*.color8:       #1f122e
+*.color0:       #4b2791
 
 ! red
-*.color1:       #cc197f
-*.color9:       #ff3bab
+*.color9:       #cc197f
+*.color1:       #ff3bab
 
 ! green
-*.color2:       #4bc05e
-*.color10:      #68ea7d
+*.color10:       #4bc05e
+*.color2:      #68ea7d
 
 ! yellow
-*.color3:       #de7d3b
-*.color11:      #fea466
+*.color11:       #de7d3b
+*.color3:      #fea466
 
 ! blue
-*.color4:       #0fa5b6
-*.color12:      #18eef0
+*.color12:       #0fa5b6
+*.color4:      #18eef0
 
 ! magenta
-*.color5:       #6e227d
-*.color13:      #9840ae
+*.color13:       #6e227d
+*.color5:      #9840ae
 
 ! cyan
-*.color6:       #0e5f59
-*.color14:      #17bdaf
+*.color14:       #0e5f59
+*.color6:      #17bdaf
 
 ! white
-*.color7:       #9998b8
-*.color15:      #effafe
+*.color15:       #9998b8
+*.color7:      #effafe
 
 *.font: xft:terminus:size=14:antialias=false
 
@@ -41,4 +41,3 @@ URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
 URxvt*scrollBar: false
 URxvt*transparent: false
-!URxvt*shading: 90

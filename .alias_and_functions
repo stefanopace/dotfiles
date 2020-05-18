@@ -25,7 +25,35 @@ alias i3lock='i3lock -c 001015'
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
 
 d () {
-    echo -e "\033[34m`pwd | sed "s|/home/stefano|~|"`\033[00m"
+  #PATHS[9]=^/
+  #ICONS[9]=\e[01m/\e[21m/
+  PATHS[8]=^/home/stefano
+  ICONS[8]=~
+  PATHS[7]=^/home/stefano/dotfiles
+  ICONS[7]=•
+  PATHS[6]=^/home/stefano/projects
+  ICONS[6]=j
+  PATHS[5]=^/home/stefano/projects/devbox
+  ICONS[5]=x
+  PATHS[4]=^/home/stefano/projects/devbox/nap/htdocs/dev
+  ICONS[4]=b
+  PATHS[3]=^/home/stefano/downloads
+  ICONS[3]=↓
+  PATHS[2]=^/home/stefano/Scrivania/workinprogress
+  ICONS[2]=w
+  PATHS[1]=^/home/stefano/Scrivania/utilities/deploy
+  ICONS[1]=↑
+
+  pwd |
+  while read pwd; do
+    for i in $(seq 1 ${#PATHS[@]}); do
+      if [[ $pwd =~ ${PATHS[$i]} ]]; then
+          echo $pwd | sed -E "s|${PATHS[$i]}|${ICONS[$i]}|";
+          break 2;
+      fi
+    done;
+    echo $pwd
+  done
 }
 
 cd () {
