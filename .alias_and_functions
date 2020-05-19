@@ -1,5 +1,5 @@
 # vim syntax=sh
-alias ls='ls --color=auto'
+alias ls='ls --color=no -p'
 alias ll='ls -lahFtr'
 alias la='ls -A'
 
