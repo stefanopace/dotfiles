@@ -37,8 +37,8 @@
 
 !*.font: xft:terminus:size=14
 !*.font: xft:unscii:size=9
-URxvt*font: xft:Dina:style=Regular:size=10
-URxvt*boldFont: xft:Dina:style=Regular:size=10
+URxvt*font: xft:Dina:style=Regular:pixelsize=16
+URxvt*boldFont: xft:Dina:style=Regular:pixelsize=16
 
 URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
