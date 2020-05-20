@@ -35,8 +35,6 @@
 *.color15:       #9998b8
 *.color7:      #effafe
 
-!*.font: xft:terminus:size=14
-!*.font: xft:unscii:size=9
 URxvt*font: xft:Dina:style=Regular:pixelsize=16
 URxvt*boldFont: xft:Dina:style=Regular:pixelsize=16
 
