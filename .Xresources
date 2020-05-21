@@ -42,3 +42,5 @@ URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
 URxvt*scrollBar: false
 URxvt*transparent: false
+URxvt*borderColor: #6e227d
+URxvt*internalBorder: 1
