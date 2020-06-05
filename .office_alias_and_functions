@@ -7,7 +7,7 @@ alias cdeploy='cd ~/Scrivania/utilities/deploy'
 alias cdwip='cd ~/Scrivania/work-in-progress'
 alias cdutils='cd ~/Scrivania/utilities'
 alias rungrunt='docker-compose -f docker-compose.grunt.yml up grunt'
-alias svnbranches='svn log http://svn.bakecadev.it/bakeca/branches/ -l50 -v | grep /bakeca/ | sed -E "s|[ A-Z]+/bakeca/branches/([^/ ]+).*|\1|" | uniq'
+alias svnbranches='svn log http://svn.bakecadev.it/bakeca/branches/ -l50 -v | grep /bakeca/ | sed -E "s|[ A-Z]+/bakeca/branches/([^/ ]+).*|\1|" | uniq | tac'
 alias runjenkins='docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts'
 alias hph='docker exec -it nap phpsh'
 
