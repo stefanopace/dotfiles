@@ -39,8 +39,8 @@ d () {
   ICONS[4]=b
   PATHS[3]=^/home/stefano/downloads
   ICONS[3]=↓
-  PATHS[2]=^/home/stefano/Scrivania/workinprogress
-  ICONS[2]=w
+  PATHS[2]=^/home/stefano/Scrivania/work-in-progress
+  ICONS[2]=%
   PATHS[1]=^/home/stefano/Scrivania/utilities/deploy
   ICONS[1]=↑
 
