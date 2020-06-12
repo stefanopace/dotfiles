@@ -1,18 +1,10 @@
-alias cdbox='cd ~/projects/devbox'
-alias cddev='cd ~/projects/devbox/nap/htdocs/dev'
-alias cdprojects='cd ~/projects'
-alias cdtests='cd ~/projects/tests/ci-tests'
-alias cdfixtures='cd ~/projects/tests/tests-fixtures'
-alias cdeploy='cd ~/Scrivania/utilities/deploy'
-alias cdwip='cd ~/Scrivania/work-in-progress'
-alias cdutils='cd ~/Scrivania/utilities'
-alias rungrunt='docker-compose -f docker-compose.grunt.yml up grunt'
+########## SVN ##########
+
+rdev="http://svn.bakecadev.it/bakeca/branches/dev"
+rstage="http://svn.bakecadev.it/bakeca/branches/stage"
+rtrunk="http://svn.bakecadev.it/bakeca/trunk"
+
 alias svnbranches='svn log http://svn.bakecadev.it/bakeca/branches/ -l100 -v | grep /bakeca/ | sed -E "s|[ A-Z]+/bakeca/branches/([^/ ]+).*|\1|" | uniq | tac'
-alias runjenkins='docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts'
-alias hph='docker exec -it nap phpsh'
-alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed -E "s|  +|  |"'
-alias up='make up-light'
-alias down='make down'
 alias svnswitch='svnbranches | sort | uniq | ff | each svn switch http://svn.bakecadev.it/bakeca/branches/{}; b'
 
 svnshow () {
@@ -34,14 +26,6 @@ b () {
     fi;
 }
 
-dockerexec-itcontainerbash(){
-    docker exec -it $1 bash
-}
-
-rdev="http://svn.bakecadev.it/bakeca/branches/dev"
-rstage="http://svn.bakecadev.it/bakeca/branches/stage"
-rtrunk="http://svn.bakecadev.it/bakeca/trunk"
-
 svnnewbranch(){
   if [ -z "$2" ]
   then
@@ -55,3 +39,27 @@ svnnewbranch(){
 devb(){
   echo $rdev-$1
 }
+
+######## DOCKER #########
+
+alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed -E "s|  +|  |"'
+alias up='make up-light'
+alias down='make down'
+
+alias rungrunt='docker-compose -f docker-compose.grunt.yml up grunt'
+alias runjenkins='docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts'
+alias hph='docker exec -it nap phpsh'
+
+dockerexec-itcontainerbash(){
+    docker exec -it $1 bash
+}
+
+##### PATH ALIASES ######
+
+alias cdbox='cd ~/projects/devbox'
+alias cddev='cd ~/projects/devbox/nap/htdocs/dev'
+alias cdprojects='cd ~/projects'
+alias cdeploy='cd ~/Scrivania/utilities/deploy'
+alias cdwip='cd ~/Scrivania/work-in-progress'
+alias cdutils='cd ~/Scrivania/utilities'
+
