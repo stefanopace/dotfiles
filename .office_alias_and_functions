@@ -15,6 +15,13 @@ alias up='make up-light'
 alias down='make down'
 alias svnswitch='svnbranches | sort | uniq | ff | each svn switch http://svn.bakecadev.it/bakeca/branches/{}; b'
 
+svnshow () {
+  to=`echo $1 | tr -d 'r'`
+  from=$(( $to - 1 ))
+  echo "diff from $from to $to"
+  svn diff -r$from:$to
+}
+
 svn_branch () {
   svn info . &> /dev/null && svn info | grep ^URL: | sed -E 's/^URL: //' | sed -E 's/^http[s]{0,1}:\/\/[a-zA-Z\.0-9-]+\///' | sed -E 's/^bakeca\/branches\///'
 }
