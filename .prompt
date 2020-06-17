@@ -1,7 +1,7 @@
 # vim syntax=sh
 PS1='\[\e[` [ $? == 0 ] && echo '32' || echo '31' `m\]`
 printf '%.s-' $(seq 1 $(tput cols))
-`\n\[\e[93m\]`test -z "$PROMPT_REMOVE_HOSTNAME" && cat /etc/hostname | tr -d "\n" && echo :`\[\e[00m\]`
+`\n\[\e[93m\]`test -n "$PROMPT_REMOVE_HOSTNAME" || ( cat /etc/hostname | tr -d "\n" && echo : )`\[\e[00m\]`
 d | sed -E "s|([^/]+)|\[\e[94m\]\1\[\e[00m\]|g"
 case $(whoami) in
     "stefano") echo ">"  ;;
