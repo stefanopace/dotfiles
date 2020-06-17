@@ -4,8 +4,8 @@ rdev="http://svn.bakecadev.it/bakeca/branches/dev"
 rstage="http://svn.bakecadev.it/bakeca/branches/stage"
 rtrunk="http://svn.bakecadev.it/bakeca/trunk"
 
-alias svnbranches='svn log http://svn.bakecadev.it/bakeca/branches/ -l100 -v | grep /bakeca/ | sed -E "s|[ A-Z]+/bakeca/branches/([^/ ]+).*|\1|" | uniq | tac'
-alias svnswitch='svnbranches | sort | uniq | ff | each svn switch http://svn.bakecadev.it/bakeca/branches/{}; b'
+alias svnbranches='svn ls -v http://svn.bakecadev.it/bakeca/branches/ | sort | sed -E "s| {3,}|   |"'
+alias svnswitch='svnbranches | tac | ff | sed -E "s|.* ([^ ]+)/$|\1|" | each svn switch http://svn.bakecadev.it/bakeca/branches/{}; b'
 
 svnshow () {
   to=`echo $1 | tr -d 'r'`
@@ -40,7 +40,9 @@ devb(){
   echo $rdev-$1
 }
 
-######## DOCKER #########
+######## DEVBOX #########
+
+export DEVBOX_HOME="/home/stefano/projects/devbox"
 
 alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed -E "s|  +|  |"'
 alias up='make up-light'
