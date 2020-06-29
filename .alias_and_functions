@@ -90,3 +90,23 @@ ssh-generate-for-github () {
 	cat ~/.ssh/id_rsa.pub | clip
 	echo "https://github.com/settings/keys"
 }
+
+applist () {
+	dpkg-query --show --showformat='${package}\n' \
+	| fzf --preview 'dpkg-query --show --showformat=\${description} {}'\
+		--preview-window=down:wrap --layout=reverse --bind=down:preview-down,up:preview-up
+}
+
+run () {
+  find /usr/share/applications ~/.local/share/applications -name '*.desktop' -print0 \
+  | xargs -0 grep -i -l "Terminal=false" \
+  | sed -E 's|(.*/)([^/]+)(\.desktop)|\1 \2 \3|' \
+  | sort | uniq \
+  | fzf --delimiter=' ' --with-nth 2 --layout=reverse --preview-window=wrap \
+    --preview 'echo {} | tr -d " " | xargs cat | grep -i ^comment= | sed -E "s#^comment= ?(.*)#\1#i"'\
+  | tr -d ' ' \
+  | xargs grep -i ^exec \
+  | head -n1 \
+  | sed 's/exec=//i' \
+  | (each sh -c {} &>/dev/null &)
+}
