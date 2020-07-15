@@ -19,4 +19,5 @@ call matchadd('ColorColumn', '\%81v', 100)
 call plug#begin()
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
