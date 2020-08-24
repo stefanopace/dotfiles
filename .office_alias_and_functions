@@ -49,6 +49,7 @@ devb(){
 ######## DEVBOX #########
 
 export DEVBOX_HOME="/home/stefano/projects/devbox"
+export EGISTO_HOME="/home/stefano/projects/egisto"
 
 alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed -E "s|  +|  |"'
 alias up='make up-light'
