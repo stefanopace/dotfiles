@@ -35,12 +35,12 @@
 *.color15:       #9998b8
 *.color7:      #effafe
 
-URxvt*font: xft:Dina:style=Regular:pixelsize=16
-URxvt*boldFont: xft:Dina:style=Regular:pixelsize=16
+URxvt*font: xft:GohuFont:style=uni-14:pixelsize=14
+URxvt*boldFont: xft:GohuFont:style=uni-14:pixelsize=14
 
 URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
 URxvt*scrollBar: false
 URxvt*transparent: false
 URxvt*borderColor: #6e227d
-URxvt*internalBorder: 1
+URxvt*internalBorder: 3

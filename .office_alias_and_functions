@@ -4,6 +4,12 @@ rdev="http://svn.bakecadev.it/bakeca/branches/dev"
 rstage="http://svn.bakecadev.it/bakeca/branches/stage"
 rtrunk="http://svn.bakecadev.it/bakeca/trunk"
 
+x () {
+	history -w
+	/usr/local/bin/x $@
+	history -r
+}
+
 alias svnbranches='svn ls -v http://svn.bakecadev.it/bakeca/branches/ | sort | sed -E "s| {3,}|   |"'
 alias svnswitch='svnbranches | tac | ff | sed -E "s|.* ([^ ]+)/$|\1|" | each svn switch http://svn.bakecadev.it/bakeca/branches/{}; b'
 
