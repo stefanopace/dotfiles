@@ -1,0 +1,17 @@
+{
+	"type": "list",
+	"set": [ { "name": "action" } ],
+	"options": ["Change terminal colors"],
+	"handlers": [
+		{
+			"type": "dynamic",
+			"set": [ { "name": "theme" } ],
+			"match": [ { "name": "action", "type": "exact", "value": "Change terminal colors" } ],
+			"execute": ["ls ~/dotfiles/colors"],
+			"handlers": [ {
+				"type": "leaf",
+				"execute": ["ln -f -s ~/dotfiles/colors/{theme} ~/.urxvt-theme; xrdb -merge ~/.Xresources; urxvt"]
+			} ]
+		}
+	]
+}
