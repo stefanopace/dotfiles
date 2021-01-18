@@ -1,39 +1,4 @@
-! special
-*.foreground:   #f3e5f4
-*.background:   #040a1a
-*.cursorColor:  #f3e5f4
-
-! black
-*.color8:       #3f248c
-*.color0:       #4b2791
-
-! red
-*.color9:       #cc197f
-*.color1:       #ff3bab
-
-! green
-*.color10:      #4bc05e
-*.color2:       #51c664
-
-! yellow
-*.color11:      #de7d3b
-*.color3:       #fea466
-
-! blue
-*.color12:      #0fa5b6
-*.color4:       #15aabb
-
-! magenta
-*.color13:      #8d278f
-*.color5:       #9840ae
-
-! cyan
-*.color14:      #31a39b
-*.color6:       #17bdaf
-
-! white
-*.color15:      #ffffff
-*.color7:       #effafe
+#include ".urxvt-theme"
 
 URxvt*font: xft:GohuFont:style=uni-14:pixelsize=14
 URxvt*boldFont: xft:GohuFont:style=uni-14:pixelsize=14
