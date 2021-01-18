@@ -7,10 +7,10 @@
 			"type": "dynamic",
 			"set": [ { "name": "theme" } ],
 			"match": [ { "name": "action", "type": "exact", "value": "Change terminal colors" } ],
-			"execute": ["ls ~/dotfiles/colors"],
+			"execute": ["ls -p ~/dotfiles/colors | grep -v /"],
 			"handlers": [ {
 				"type": "leaf",
-				"execute": ["ln -f -s ~/dotfiles/colors/{theme} ~/.urxvt-theme; xrdb -merge ~/.Xresources; urxvt"]
+				"execute": ["ln -f -s ~/dotfiles/colors/{theme} ~/.urxvt-theme; xrdb -merge ~/.Xresources; ~/dotfiles/colors/scripts/change-color.sh ~/.urxvt-theme"]
 			} ]
 		}
 	]
