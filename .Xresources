@@ -4,7 +4,7 @@
 *.cursorColor:  #f3e5f4
 
 ! black
-*.color8:       #1f122e
+*.color8:       #3f248c
 *.color0:       #4b2791
 
 ! red
@@ -13,7 +13,7 @@
 
 ! green
 *.color10:       #4bc05e
-*.color2:      #68ea7d
+*.color2:      #51c664
 
 ! yellow
 *.color11:       #de7d3b
@@ -21,10 +21,10 @@
 
 ! blue
 *.color12:       #0fa5b6
-*.color4:      #18eef0
+*.color4:      #15aabb
 
 ! magenta
-*.color13:       #6e227d
+*.color13:       #6e2070
 *.color5:      #9840ae
 
 ! cyan
@@ -32,7 +32,7 @@
 *.color6:      #17bdaf
 
 ! white
-*.color15:       #9998b8
+*.color15:       #ffffff
 *.color7:      #effafe
 
 URxvt*font: xft:GohuFont:style=uni-14:pixelsize=14
