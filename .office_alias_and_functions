@@ -67,8 +67,12 @@ dockerexec-itcontainerbash(){
 
 alias cdbox='cd ~/projects/devbox'
 alias cddev='cd ~/projects/devbox/nap/htdocs/dev'
+alias cdphp7='cd ~/projects/bakecasvn/dev-php7'
 alias cdprojects='cd ~/projects'
 alias cdeploy='cd ~/Scrivania/utilities/deploy'
 alias cdwip='cd ~/Scrivania/work-in-progress'
 alias cdutils='cd ~/Scrivania/utilities'
+alias cdtest='cd ~/projects/tests/ci-tests'
 
+##### OTHERS #####
+alias vpn='ip address | grep tun'
