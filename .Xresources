@@ -1,11 +1,22 @@
 #include ".urxvt-theme"
 
-URxvt*font: xft:GohuFont:style=uni-14:pixelsize=14
-URxvt*boldFont: xft:GohuFont:style=uni-14:pixelsize=14
+URxvt*font: xft:GohuFont:style=uni-14:pixelsize=14:antialias=false
+URxvt*boldFont: xft:GohuFont:style=uni-14:pixelsize=14:antialias=false
 
 URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
 URxvt*scrollBar: false
 URxvt*transparent: false
-URxvt*borderColor: #000000
-URxvt*internalBorder: 1
+URxvt*borderless: true
+! URxvt*borderColor: #000000
+! URxvt*internalBorder: 1
+
+! URxvt.keysym.C-minus: command:\033]710;xft:GohuFont:style=uni-14:pixelsize=14:antialias=false\007
+! URxvt.keysym.C-equal: command:\033]710;xft:GohuFont:style=uni-22:pixelsize=22:antialias=true\007
+
+URxvt.perl-ext-common : default,tabbed
+
+URxvt.tabbed.tabbar-fg: 0
+URxvt.tabbed.tabbar-bg: -1
+URxvt.tabbed.tab-fg: 5
+URxvt.tabbed.tab-bg: -1
