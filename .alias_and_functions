@@ -58,11 +58,6 @@ d () {
   done
 }
 
-cd () {
-	builtin cd "$@"
-	title `pwd`
-}
-
 ff () {
 	local tmp
 	tmp=$(fzf $@) && echo "$tmp"
