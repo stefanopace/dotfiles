@@ -1,12 +1,12 @@
 {
 	"type": "list",
 	"set": [ { "name": "action" } ],
-	"options": ["Change terminal colors", "Weather"],
+	"options": ["Cambia colori terminale", "Meteo"],
 	"handlers": [
 		{
 			"type": "dynamic",
 			"set": [ { "name": "theme" } ],
-			"match": [ { "name": "action", "type": "exact", "value": "Change terminal colors" } ],
+			"match": [ { "name": "action", "type": "exact", "value": "Cambia colori terminale" } ],
 			"execute": ["ls -p ~/dotfiles/colors | grep -v /"],
 			"handlers": [ {
 				"type": "leaf",
@@ -14,10 +14,10 @@
 			} ]
 		},
 		{
-			"type": "list",
+			"type": "dynamic",
 			"set": [ { "name": "city" } ],
-			"match": [ { "name": "action", "type": "exact", "value": "Weather" } ],
-			"options": ["Isernia", "Turin"],
+			"match": [ { "name": "action", "type": "exact", "value": "Meteo" } ],
+			"execute": ["cat ~/dotfiles/eeks-configs/comuni-italiani"],
 			"handlers": [
 				{
 					"type": "leaf",
