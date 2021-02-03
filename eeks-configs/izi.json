@@ -1,7 +1,7 @@
 {
 	"type": "list",
 	"set": [ { "name": "action" } ],
-	"options": ["Change terminal colors"],
+	"options": ["Change terminal colors", "Weather"],
 	"handlers": [
 		{
 			"type": "dynamic",
@@ -12,6 +12,18 @@
 				"type": "leaf",
 				"execute": ["ln -f -s ~/dotfiles/colors/{theme} ~/.urxvt-theme; xrdb -merge ~/.Xresources; ~/dotfiles/colors/scripts/change-color.sh ~/.urxvt-theme"]
 			} ]
+		},
+		{
+			"type": "list",
+			"set": [ { "name": "city" } ],
+			"match": [ { "name": "action", "type": "exact", "value": "Weather" } ],
+			"options": ["Isernia", "Turin"],
+			"handlers": [
+				{
+					"type": "leaf",
+					"execute": [ "city={city}; curl -s \"api.openweathermap.org/data/2.5/forecast?q=$city&appid=06faefaf9c8e6d3500f63ef7de4a4d84&units=metric&lang=it\" | render_forecast | less" ]
+				}
+			]
 		}
 	]
 }
