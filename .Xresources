@@ -9,7 +9,7 @@ URxvt*scrollBar: false
 URxvt*transparent: false
 URxvt*borderless: true
 ! URxvt*borderColor: #000000
-! URxvt*internalBorder: 1
+URxvt*internalBorder: 0
 
 ! URxvt.keysym.C-minus: command:\033]710;xft:GohuFont:style=uni-14:pixelsize=14:antialias=false\007
 ! URxvt.keysym.C-equal: command:\033]710;xft:GohuFont:style=uni-22:pixelsize=22:antialias=true\007
@@ -23,4 +23,5 @@ URxvt.tabbed.tab-bg: -1
 
 URxvt.tabbed.new-button:  no
 URxvt.tabbed.title: no
-URxvt.tabbed.autohide:  yes
+URxvt.keysym.Control-a: perl:tabbedex:reload_colors
+URxvt.tabbed.autohide: no
