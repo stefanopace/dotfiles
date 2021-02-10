@@ -16,9 +16,9 @@ URxvt*internalBorder: 0
 
 URxvt.perl-ext-common : default,tabbedex
 
-URxvt.tabbed.tabbar-fg: 13
+URxvt.tabbed.tabbar-fg: 6
 URxvt.tabbed.tabbar-bg: -1
-URxvt.tabbed.tab-fg: 5
+URxvt.tabbed.tab-fg: 14
 URxvt.tabbed.tab-bg: -1
 
 URxvt.tabbed.new-button:  no
