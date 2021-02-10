@@ -23,5 +23,5 @@ URxvt.tabbed.tab-bg: -1
 
 URxvt.tabbed.new-button:  no
 URxvt.tabbed.title: no
-URxvt.keysym.Control-a: perl:tabbedex:reload_colors
+! URxvt.keysym.Control-a: perl:tabbedex:reload_colors
 URxvt.tabbed.autohide: no
