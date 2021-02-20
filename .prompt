@@ -1,17 +1,19 @@
 # vim syntax=sh
 PS1='`
-bar_char="¯"
-left_join_char="|"
-right_join_char="|"
 current_status=$?
-status_color=$([ $current_status == 0 ] && echo '\\[\\e[32m\\]' || echo '\\[\\e[31m\\]')
+bar_char="╌"
+left_join_char="╸"
+right_join_char=":"
+status_color=$([ ${current_status} == 0 ] && echo '\\[\\e[32m\\]' || echo '\\[\\e[31m\\]')
 current_branch=$(git rev-parse --is-inside-work-tree &> /dev/null && git rev-parse --abbrev-ref HEAD | tr -d "\n")
-branch_space=$([ -n "$current_branch" ] && echo "$((${#current_branch}+2))" || echo '0')
-bar_length=$(($(tput cols)-$branch_space))
-printf "$status_color"
-printf "%.s$bar_char" $(seq 1 $bar_length)
-if [ -n "$current_branch" ]; then
-    printf "${left_join_char}\[\e[33m\]$current_branch\[\e[00m\]$status_color${right_join_char}"
+branch_space=$([ -n "${current_branch}" ] && echo "$((${#current_branch}+2))" || echo '0')
+bar_length=$(($(tput cols)-${branch_space}))
+printf "${status_color}"
+printf "%.s${bar_char}" $(seq 1 ${bar_length})
+if [ -n "${current_branch}" ]; then
+    echo -n "${left_join_char}"
+    echo -n "\[\e[33m\]${current_branch}\[\e[00m\]${status_color}"
+    echo -n "${right_join_char}"
 fi
 `\n\[\e[93m\]`test -n "$PROMPT_REMOVE_HOSTNAME" || ( cat /etc/hostname | tr -d "\n" && echo : )`\[\e[00m\]`
 d | sed -E "s|([^/]+)|\[\e[94m\]\1\[\e[00m\]|g"
