@@ -1,15 +1,15 @@
 # vim syntax=sh
 PS1='`
 current_status=$?
-bar_char="‾"
+bar_char="⎺"
 status_color=$([ ${current_status} == 0 ] && echo '\\[\\e[32m\\]' || echo '\\[\\e[31m\\]')
 current_branch=$(git rev-parse --is-inside-work-tree &> /dev/null && git rev-parse --abbrev-ref HEAD | tr -d "\n")
 rendered_branch=""
 branch_space=0
 case ${current_branch} in
-    "master") rendered_branch="_//"; branch_space=3 ;;
+    "master") rendered_branch="\[\e[4m\]~\[\e[24m\]/"; branch_space=2 ;;
           "") rendered_branch="" ;;
-           *) rendered_branch="_// \[\e[33m\]${current_branch}\[\e[00m\]${status_color} //"; branch_space=$((${#current_branch} + 7)) ;;
+           *) rendered_branch="\[\e[4m\]${current_branch}\[\e[24m\]/"; branch_space=$((${#current_branch} + 1)) ;;
 esac
 printf "${status_color}"
 printf "${rendered_branch}"
