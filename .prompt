@@ -7,7 +7,7 @@ current_branch=$(git rev-parse --is-inside-work-tree &> /dev/null && git rev-par
 rendered_branch=""
 branch_space=0
 case ${current_branch} in
-    "master") rendered_branch="\[\e[4m\]~\[\e[24m\]/"; branch_space=2 ;;
+    "master") rendered_branch="\[\e[4m\] ~\[\e[24m\]/"; branch_space=3 ;;
           "") rendered_branch="" ;;
            *) rendered_branch="\[\e[4m\]${current_branch}\[\e[24m\]/"; branch_space=$((${#current_branch} + 1)) ;;
 esac
