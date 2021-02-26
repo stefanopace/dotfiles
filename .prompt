@@ -7,9 +7,9 @@ current_branch=$(git rev-parse --is-inside-work-tree &> /dev/null && git rev-par
 rendered_branch="?/"
 branch_space=2
 case ${current_branch} in
-    "master") rendered_branch="~/"; branch_space=2 ;;
-          "") rendered_branch=" /" ; branch_space=2 ;;
-           *) rendered_branch="$(echo ${current_branch} | cut -c -1)\[\e[4m\]$(echo ${current_branch} | cut -c 2-)\[\e[24m\]/"; branch_space=$((${#current_branch} + 1)) ;;
+    "master") rendered_branch="\[\e[4m\]~\[\e[24m\]/"; branch_space=2 ;;
+          "") rendered_branch="" ; branch_space=0 ;;
+           *) rendered_branch="\[\e[4m\]${current_branch}\[\e[24m\]/"; branch_space=$((${#current_branch} + 1)) ;;
 esac
 printf "${status_color}"
 printf "${rendered_branch}"
@@ -22,8 +22,7 @@ esac
 bar_length=$(($(tput cols)-${branch_space}-${status_space}))
 printf "%.s${bar_char}" $(seq 1 ${bar_length})
 printf "${rendered_status}"
-printf "\n/"
-`\[\e[93m\]`test -n "$PROMPT_REMOVE_HOSTNAME" || ( cat /etc/hostname | tr -d "\n" && echo : )`\[\e[00m\]`
+`\n\[\e[93m\]`test -n "$PROMPT_REMOVE_HOSTNAME" || ( cat /etc/hostname | tr -d "\n" && echo : )`\[\e[00m\]`
 d | sed -E "s|([^/]+)|\[\e[94m\]\1\[\e[00m\]|g"
 case $(whoami) in
     "stefano") echo ">"  ;;
