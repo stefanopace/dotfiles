@@ -25,6 +25,7 @@ alias i3lock='i3lock -c 001015'
 
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
 alias j='eeks --configurations ~/dotfiles/eeks-configs/izi.json --source ~/dotfiles/eeks-configs/render-weather.sh'
+alias bat=batcat
 
 d () {
   #PATHS[9]=^/
