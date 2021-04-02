@@ -25,7 +25,6 @@ alias i3lock='i3lock -c 001015'
 
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
 alias j='eeks --configurations ~/dotfiles/eeks-configs/izi.json --source ~/dotfiles/eeks-configs/render-weather.sh'
-alias bat=batcat
 
 d () {
   #PATHS[9]=^/
@@ -44,7 +43,7 @@ d () {
   ICONS[3]=↓
   PATHS[2]=^/home/stefano/Scrivania/work-in-progress
   ICONS[2]=%
-  PATHS[1]=^/home/stefano/Scrivania/utilities/deploy
+  PATHS[1]=^/home/stefano/Scrivania/utilities/bakeca/maildeploy
   ICONS[1]=↑
 
   pwd |

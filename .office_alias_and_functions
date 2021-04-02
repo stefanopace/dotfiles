@@ -52,11 +52,11 @@ export DEVBOX_HOME="/home/stefano/projects/devbox"
 export EGISTO_HOME="/home/stefano/projects/egisto"
 
 alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed -E "s|  +|  |"'
-alias up='make up-light'
-alias down='make down'
+#alias up='make up-light'
+#alias down='make down'
 
-alias rungrunt='docker-compose -f docker-compose.grunt.yml up grunt'
-alias runjenkins='docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts'
+#alias rungrunt='docker-compose -f docker-compose.grunt.yml up grunt'
+#alias runjenkins='docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts'
 alias hph='docker exec -it nap phpsh'
 
 dockerexec-itcontainerbash(){
@@ -69,9 +69,11 @@ alias cdbox='cd ~/projects/devbox'
 alias cddev='cd ~/projects/devbox/nap/htdocs/dev'
 alias cdphp7='cd ~/projects/bakecasvn/dev-php7'
 alias cdprojects='cd ~/projects'
-alias cdeploy='cd ~/Scrivania/utilities/deploy'
+alias cdeploy='cd ~/Scrivania/utilities/bakeca/maildeploy'
+alias cdtrunk='cd ~/Scrivania/utilities/bakeca/trunk'
 alias cdwip='cd ~/Scrivania/work-in-progress'
 alias cdutils='cd ~/Scrivania/utilities'
+alias cdbutils='cd ~/Scrivania/utilities/bakeca/utilities'
 alias cdtest='cd ~/projects/tests/ci-tests'
 
 ##### OTHERS #####
