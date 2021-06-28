@@ -3,6 +3,7 @@
 	name = Stefano Pace
 [core]
 	editor = vim
+	excludesFile = ~/.gitignore_global
 [alias]
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	co = checkout
