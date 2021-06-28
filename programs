@@ -8,6 +8,7 @@ tig
 ripgrep
 jq
 pup
+bat
 xclip
 fonts-firacode
 xbacklight
