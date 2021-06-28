@@ -4,6 +4,10 @@ arandr
 fzf
 silversearcher-ag
 git
+tig
+ripgrep
+jq
+pup
 xclip
 fonts-firacode
 xbacklight
