@@ -20,6 +20,7 @@ alias open='xdg-open'
 alias readxresources='xrdb -merge ~/.Xresources'
 alias voc='cat /usr/share/dict/words | ff'
 alias standby='systemctl suspend'
+alias ask='zenity'
 
 alias icat='kitty +kitten icat'
 alias i3lock='i3lock -c 001015'
