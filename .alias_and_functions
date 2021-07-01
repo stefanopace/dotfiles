@@ -6,9 +6,8 @@ alias la='ls -A'
 
 alias cdow='cd ~/downloads'
 alias cdot='cd ~/dotfiles'
-alias cdsc='cd ~/Scrivania'
-alias cdside='cd ~/Scrivania/side-projects'
-alias cdwip='cd ~/Scrivania/work-in-progress'
+alias cdside='cd ~/side-projects'
+alias cdwip='cd ~/work-in-progress'
 
 alias each='xargs -L1 -I{}'
 alias gatto='cat'
@@ -29,28 +28,26 @@ alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
 alias j='eeks --configurations ~/dotfiles/eeks-configs/izi.json --source ~/dotfiles/eeks-configs/render-weather.sh'
 
 d () {
-  PATHS[9]=^/home/stefanopace
-  ICONS[9]="~"
-  PATHS[8]=^/home/stefanopace/dotfiles
-  ICONS[8]=•
-  PATHS[7]=^/home/stefanopace/projects
-  ICONS[7]=j
-  PATHS[6]=^/home/stefanopace/projects/devbox
-  ICONS[6]=x
-  PATHS[5]=^/home/stefanopace/projects/devbox/nap/htdocs/dev
-  ICONS[5]=b
-  PATHS[4]=^/home/stefanopace/downloads
-  ICONS[4]=↓
-  PATHS[3]=^/home/stefanopace/Scrivania/work-in-progress
-  ICONS[3]=%
-  PATHS[2]=^/home/stefanopace/Scrivania/side-projects
-  ICONS[2]=€
-  PATHS[1]=^/home/stefanopace/Scrivania/utilities/bakeca/maildeploy
-  ICONS[1]=↑
+  PATHS=(\
+    ^/home/stefanopace/side-projects \
+    ^/home/stefanopace/work-in-progress \
+    ^/home/stefanopace/downloads \
+    ^/home/stefanopace/projects \
+    ^/home/stefanopace/dotfiles \
+    ^/home/stefanopace
+  )
+  ICONS=(\
+    € \
+    % \
+    ↓ \
+    j \
+    • \
+    "~" \
+  )
 
   pwd |
   while read pwd; do
-    for i in $(seq 1 ${#PATHS[@]}); do
+    for i in ${!PATHS[@]}; do
       if [[ $pwd =~ ${PATHS[$i]} ]]; then
           echo -n $pwd | sed -E "s|${PATHS[$i]}|${ICONS[$i]}|";
           break 2;
