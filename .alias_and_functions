@@ -18,7 +18,7 @@ alias jsoncat='python -m json.tool'
 alias clip="tee /dev/tty | perl -pe 'chomp if eof' | xclip -sel clip"
 alias open='xdg-open'
 alias readxresources='xrdb -merge ~/.Xresources'
-alias voc='cat /usr/share/dict/words | ff'
+alias voc='cat /usr/share/dict/words'
 alias standby='systemctl suspend'
 alias ask='zenity'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
