@@ -8,4 +8,4 @@
 .vimrc ~/.vimrc 
 .Xresources ~/.Xresources
 .tmux.conf ~/.tmux.conf
-color/virtuaverse ~/.urxvt-theme
+colors/virtuaverse ~/.urxvt-theme
