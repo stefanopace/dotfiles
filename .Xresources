@@ -1,7 +1,7 @@
 #include ".urxvt-theme"
 
-URxvt*font: xft:Gohu GohuFont:style=uni-14:pixelsize=14:antialias=false
-URxvt*boldFont: xft:Gohu GohuFont:style=uni-14:pixelsize=14:antialias=false
+URxvt*font: xft:Gohu GohuFont:style=Regular:pixelsize=14:antialias=false
+URxvt*boldFont: xft:Gohu GohuFont:style=Bold:pixelsize=14:antialias=false
 
 URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
