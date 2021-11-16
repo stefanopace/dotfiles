@@ -1,7 +1,7 @@
 #include ".urxvt-theme"
 
-URxvt*font: xft:Gohu GohuFont:style=Regular:pixelsize=14:antialias=false
-URxvt*boldFont: xft:Gohu GohuFont:style=Bold:pixelsize=14:antialias=false
+URxvt*font: xft:Source Code Pro:style=Regular:pixelsize=18:antialias=true
+URxvt*boldFont: xft:Source Code Pro:style=Bold:pixelsize=18:antialias=true
 
 URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1
@@ -16,10 +16,10 @@ URxvt*internalBorder: 0
 
 URxvt.perl-ext-common : default,tabbedex
 
-URxvt.tabbed.tabbar-fg: 6
+URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: -1
-URxvt.tabbed.tab-fg: 14
-URxvt.tabbed.tab-bg: -1
+URxvt.tabbed.tab-fg: -1
+URxvt.tabbed.tab-bg: 2
 
 URxvt.tabbed.new-button:  no
 URxvt.tabbed.title: no
