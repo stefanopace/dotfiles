@@ -1,7 +1,7 @@
 #include ".urxvt-theme"
 
-URxvt*font: xft:Source Code Pro:style=Regular:pixelsize=18:antialias=true
-URxvt*boldFont: xft:Source Code Pro:style=Bold:pixelsize=18:antialias=true
+URxvt*font: xft:D2Coding:style=Regular:pixelsize=20:antialias=true
+URxvt*boldFont: xft:D2Coding:style=Bold:pixelsize=20:antialias=true
 
 URxvt*cursorBlink: 1
 URxvt*cursorUnderline: 1

@@ -26,7 +26,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed -E "s|  +|  |"'
 alias bat='batcat'
 
-alias zoomin='echo -e "\033]710;xft:Ubuntu Mono:style=Regular:pixelsize=24:antialias=true\007\033]711;xft:Ubuntu Mono:style=Bold:pixelsize=24:antialias=true\007"'
+alias zoomin='echo -e "\033]710;D2Coding:style=Regular:pixelsize=20:antialias=true\007\033]711;D2Coding:style=Bold:pixelsize=20:antialias=true\007"'
 alias zoomout='echo -e "\033]710;xft:Gohu GohuFont:style=Regular:pixelsize=14:antialias=false\007\033]711;xft:Gohu GohuFont:style=Bold:pixelsize=14:antialias=false\007"'
 
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
