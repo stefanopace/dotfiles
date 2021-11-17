@@ -70,7 +70,7 @@ def render_path(working_dir, inside_git_repo, branch_name, git_root_dir):
 
     if inside_git_repo:
         git_root_path = fold_path(git_root_dir, whoami).lstrip("/").split("/")
-        path[len(git_root_path) - 1]["color"] = yellow
+        path[len(git_root_path) - 1]["color"] = green
         path[len(git_root_path) - 1]["styles"].append(bold)
         if branch_name == "master":
             path[len(git_root_path) - 1]["styles"].append(underlined)
@@ -106,6 +106,9 @@ git_root_dir = sys.argv[7]
 
 print(
     arrow(
-        render_exit_code(exit_code) + render_hostname(hostname) + render_path(working_dir, inside_git_repo, branch_name, git_root_dir) + render_username(whoami)
+        render_exit_code(exit_code) + 
+        render_hostname(hostname) + 
+        render_path(working_dir, inside_git_repo, branch_name, git_root_dir) + 
+        render_username(whoami)
     )
 )
