@@ -1,26 +1,16 @@
 # vim syntax=sh
 PS1='`
 current_status=$?
-current_branch=$(git rev-parse --is-inside-work-tree &> /dev/null && git rev-parse --abbrev-ref HEAD 2> /dev/null | tr -d "\n")
-rendered_branch="?"
-case ${current_branch} in
-    "master") rendered_branch="" ;;
-          "") rendered_branch="" ;;
-           *) rendered_branch="\[\e[4m\]" ;;
-esac
-rendered_status=""
-case ${current_status} in
-           0) rendered_status="" ;;
-           *) rendered_status="${current_status} " ;;
-esac
-printf "\[\e[100m\]"
-printf "\[\e[33m\]${rendered_branch}"
-printf "\[\e[31m\]${rendered_status}"
-`\[\e[93m\]`test -n "$PROMPT_REMOVE_HOSTNAME" || ( cat /etc/hostname | tr -d "\n" && echo : )
-`\[\e[94m\]`d | sed -E "s|^/||" | sed -E "s|([^/]+)/([^/]+)/?|\[\e[1m\]\1\[\e[39;21m\]\2\[\e[94;1m\]|g"`\[\e[00m\]\[\e[90m\]`
-case $(whoami) in
-        "stefano") echo ""  ;;
-    "stefanopace") echo ""  ;;
-           "root") echo "#" ;;
-                *) echo "??";;
-esac`\[\e[00m\]'
+hostname=$(cat /etc/hostname)
+whoami=$(whoami)
+working_dir=$(pwd)
+inside_git_repo=$(git rev-parse --is-inside-work-tree 2> /dev/null)
+current_branch=''
+git_root_dir=''
+if [ -n "$inside_git_repo" ]; then
+    current_branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null | tr -d "\n")
+    git_root_dir=$(git rev-parse --show-toplevel)
+fi
+prompt=$(python3 ~/dotfiles/prompt.py "$current_status" "$whoami" "$hostname" "$working_dir" "$inside_git_repo" "$current_branch" "$git_root_dir")
+printf "$prompt"
+`'
