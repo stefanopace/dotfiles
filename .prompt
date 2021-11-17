@@ -1,31 +1,26 @@
 # vim syntax=sh
 PS1='`
 current_status=$?
-bar_char="─"
-status_color=$([ ${current_status} == 0 ] && echo '\\[\\e[32m\\]' || echo '\\[\\e[31m\\]')
 current_branch=$(git rev-parse --is-inside-work-tree &> /dev/null && git rev-parse --abbrev-ref HEAD 2> /dev/null | tr -d "\n")
 rendered_branch="?"
 case ${current_branch} in
-    "master") rendered_branch=":" ;;
+    "master") rendered_branch="" ;;
           "") rendered_branch="" ;;
-           *) rendered_branch="%%" ;;
+           *) rendered_branch="\[\e[4m\]" ;;
 esac
 rendered_status=""
 case ${current_status} in
            0) rendered_status="" ;;
            *) rendered_status="${current_status} " ;;
 esac
-printf "${status_color}"
-
-printf "%.s${bar_char}" $(seq 1 $(tput cols))
-printf "\n"
-printf "${rendered_status}"
+printf "\[\e[100m\]"
 printf "\[\e[33m\]${rendered_branch}"
-`\[\e[93m\]`test -n "$PROMPT_REMOVE_HOSTNAME" || ( cat /etc/hostname | tr -d "\n" && echo : )`\[\e[00m\]`
-d | sed -E "s|([^/]+)|\[\e[94m\]\1\[\e[00m\]|g"
+printf "\[\e[31m\]${rendered_status}"
+`\[\e[93m\]`test -n "$PROMPT_REMOVE_HOSTNAME" || ( cat /etc/hostname | tr -d "\n" && echo : )
+`\[\e[94m\]`d | sed -E "s|^/||" | sed -E "s|([^/]+)/([^/]+)/?|\[\e[1m\]\1\[\e[39;21m\]\2\[\e[94;1m\]|g"`\[\e[00m\]\[\e[90m\]`
 case $(whoami) in
-        "stefano") echo ">"  ;;
-    "stefanopace") echo ">"  ;;
-           "root") echo "#>" ;;
-                *) echo "??>";;
-esac`'
+        "stefano") echo ""  ;;
+    "stefanopace") echo ""  ;;
+           "root") echo "#" ;;
+                *) echo "??";;
+esac`\[\e[00m\]'
