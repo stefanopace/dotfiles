@@ -1,5 +1,5 @@
 # vim syntax=sh
-PS1='`
+PROMPT_COMMAND='PS1="$(
 current_status=$?
 hostname=$(cat /etc/hostname)
 whoami=$(whoami)
@@ -12,5 +12,4 @@ if [ -n "$inside_git_repo" ]; then
     git_root_dir=$(git rev-parse --show-toplevel)
 fi
 prompt=$(python3 ~/dotfiles/prompt.py "$current_status" "$whoami" "$hostname" "$working_dir" "$inside_git_repo" "$current_branch" "$git_root_dir")
-printf "$prompt"
-`'
+echo -e "$prompt")"'

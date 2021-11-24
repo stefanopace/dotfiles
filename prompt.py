@@ -5,34 +5,37 @@ def default(text):
     return text
 
 def bold(text):
-    return f'\e[1m{text}\e[21m'
+    return escape(text, 1, 21)
 
 def underlined(text):
-    return f'\e[4m{text}\e[24m'
+    return escape(text, 4, 24)
 
 def italic(text):
-    return f'\e[3m{text}\e[23m'
+    return escape(text, 3, 23)
 
 def red(text):
-    return f'\e[31m{text}\e[39m'
+    return escape(text, 31, 39)
 
 def green(text):
-    return f'\e[32m{text}\e[39m'
+    return escape(text, 32, 39)
 
 def yellow(text):
-    return f'\e[33m{text}\e[39m'
+    return escape(text, 33, 39)
 
 def blue(text):
-    return f'\e[34m{text}\e[39m'
+    return escape(text, 34, 39)
 
 def magenta(text):
-    return f'\e[35m{text}\e[39m'
+    return escape(text, 35, 39)
 
 def cyan(text):
-    return f'\e[36m{text}\e[39m'
+    return escape(text, 36, 39)
 
 def arrow(text):
-    return f'\e[100m{text}\e[49m\e[90m\e[00m'
+    return escape(text, 100, 49) + escape('', 90, 0)
+
+def escape(text, a, b):
+    return f'\e[{a}m{text}\e[{b}m'
 
 def fold_path(path, username):
     for fold in [
