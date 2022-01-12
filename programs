@@ -1,8 +1,6 @@
 vim
 feh
-arandr
 fzf
-silversearcher-ag
 git
 tig
 ripgrep
@@ -11,8 +9,3 @@ pup
 bat
 tldr
 xclip
-fonts-firacode
-xbacklight
-compton
-fonts-terminus
-rxvt-unicode

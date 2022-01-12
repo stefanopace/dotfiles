@@ -1,11 +1,5 @@
-.prompt ~/.prompt
-.office_alias_and_functions ~/.office_alias_and_functions
 .inputrc ~/.inputrc
-.bashrc ~/.bashrc
-.alias_and_functions ~/.alias_and_functions
+.bash_aliases ~/.bash_aliases
 .gitconfig ~/.gitconfig
-.config/i3status/config ~/.config/i3status/config
 .vimrc ~/.vimrc 
-.Xresources ~/.Xresources
 .tmux.conf ~/.tmux.conf
-colors/virtuaverse ~/.urxvt-theme

@@ -1,7 +1,0 @@
-alias ecr-login='aws ecr get-login-password --profile default --region eu-west-1 | docker login --username AWS --password-stdin 595659439703.dkr.ecr.eu-west-1.amazonaws.com'
-
-cdm () {
-    cd /home/stefanopace/projects/
-    micro=$(find . -maxdepth 1 -type d | tail -n +2 | cut --character 3- | fzf)
-    cd /home/stefanopace/projects/$micro
-}

@@ -14,13 +14,10 @@ alias each='xargs -L1 -I{}'
 alias gatto='cat'
 alias meno='less'
 alias reloadbashrc='source ~/.bashrc'
-alias xresourcesreload='xrdb ~/.Xresources'
 alias jsoncat='python -m json.tool'
 alias clip="tee /dev/tty | perl -pe 'chomp if eof' | xclip -sel clip"
 alias open='xdg-open'
-alias readxresources='xrdb -merge ~/.Xresources'
 alias voc='cat /usr/share/dict/words'
-alias standby='systemctl suspend'
 alias ask='zenity'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed -E "s|  +|  |"'
@@ -31,36 +28,6 @@ alias zoomout='echo -e "\033]710;xft:Gohu GohuFont:style=Regular:pixelsize=14:an
 
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
 alias j='eeks --configurations ~/dotfiles/eeks-configs/izi.json --source ~/dotfiles/eeks-configs/render-weather.sh'
-
-d () {
-  PATHS=(\
-    ^/home/stefanopace/side-projects \
-    ^/home/stefanopace/work-in-progress \
-    ^/home/stefanopace/downloads \
-    ^/home/stefanopace/projects \
-    ^/home/stefanopace/dotfiles \
-    ^/home/stefanopace
-  )
-  ICONS=(\
-    € \
-    % \
-    ↓ \
-    j \
-    • \
-    "~" \
-  )
-
-  pwd |
-  while read pwd; do
-    for i in ${!PATHS[@]}; do
-      if [[ $pwd =~ ${PATHS[$i]} ]]; then
-          echo -n $pwd | sed -E "s|${PATHS[$i]}|${ICONS[$i]}|";
-          break 2;
-      fi
-    done;
-    echo -n $pwd
-  done
-}
 
 title () {
 	echo -en "\x1b]0;$@\x07"
@@ -79,25 +46,5 @@ ssh-generate-for-github () {
 	ssh-add ~/.ssh/id_rsa
 	cat ~/.ssh/id_rsa.pub | clip
 	echo "https://github.com/settings/keys"
-}
-
-applist () {
-	dpkg-query --show --showformat='${package}\n' \
-	| fzf --preview 'dpkg-query --show --showformat=\${description} {}'\
-		--preview-window=down:wrap --layout=reverse --bind=down:preview-down,up:preview-up
-}
-
-run () {
-  find /usr/share/applications ~/.local/share/applications -name '*.desktop' -print0 \
-  | xargs -0 grep -i -l "Terminal=false" \
-  | sed -E 's|(.*/)([^/]+)(\.desktop)|\1 \2 \3|' \
-  | sort | uniq \
-  | fzf --delimiter=' ' --with-nth 2 --layout=reverse --preview-window=wrap \
-    --preview 'echo {} | tr -d " " | xargs cat | grep -i ^comment= | sed -E "s#^comment= ?(.*)#\1#i"'\
-  | tr -d ' ' \
-  | xargs grep -i ^exec \
-  | head -n1 \
-  | sed 's/exec=//i' \
-  | (each sh -c {} &>/dev/null &)
 }
 
