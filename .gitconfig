@@ -12,3 +12,5 @@
 	st = status -sb
 	unstage = reset HEAD --
 
+[diff]
+	external = difft
