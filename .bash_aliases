@@ -76,6 +76,9 @@ PS1='$(if [ $? -ne 0 ]; then echo "\[\e[37;41;1m\]\W\[\e[40;31m\]\[\e[0m\]\[\
 PS0='\[\e[0m\]\[\e[K\]'
 PS2='│\[\e[K\]'
 
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux new-session -A -s 0
+fi
 
 # preexec () { 
 # 	true
