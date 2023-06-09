@@ -54,7 +54,9 @@ set -o vi
 export EDITOR=vim
 
 export NOTE_HOME=~/tools/notes
-bind '"jk":vi-movement-mode'
+bind -x '"\C-l": echo -e "\[\e[0m\]"; clear;'
+
+#bind '"jk":vi-movement-mode'
 # If there are multiple matches for completion, Tab should cycle through them
 bind 'TAB:menu-complete'
 # And Shift-Tab should cycle backwards
@@ -67,6 +69,21 @@ bind "set show-all-if-ambiguous on"
 # cycling full results on the second Tab press (from bash version 5)
 bind "set menu-complete-display-prefix on"
 
+#PS1='\[\e[0;0H\]$(if [ $? -ne 0 ]; then echo "\[\e[37;41;1m\]\W\[\e[40;31m\]\[\e[s\]\[\e[0m\]\[\e[40;1m\]"; else echo "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[s\]\[\e[0m\]\[\e[40;1m\]"; fi)\[\e[K\]'
+#PS0='\[\e[0m\]\[\e[2J\]'
+
 PS1='$(if [ $? -ne 0 ]; then echo "\[\e[37;41;1m\]\W\[\e[40;31m\]\[\e[0m\]\[\e[40;1m\]"; else echo "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[0m\]\[\e[40;1m\]"; fi)\[\e[K\]'
-PS2='│\[\e[K\]'
 PS0='\[\e[0m\]\[\e[K\]'
+PS2='│\[\e[K\]'
+
+
+# preexec () { 
+# 	true
+# 	#echo -e "\e[0m\e[2J"
+# }
+# preexec_invoke_exec () {
+#     [ -n "$COMP_LINE" ] && return  # do nothing if completing
+#     [ "$BASH_COMMAND" = "$PROMPT_COMMAND" ] && return # don't cause a preexec for $PROMPT_COMMAND
+#     preexec
+# }
+# trap 'preexec_invoke_exec' DEBUG
