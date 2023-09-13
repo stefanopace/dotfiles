@@ -85,12 +85,15 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -n "$GUAKE_TAB_UUID" ] && 
 fi
 
 function watcha {
-    watch -n 600 "python3 ~/work-in-progress/swift.py -a 2> /dev/null"
+    watch -n 300 "python3 ~/work-in-progress/swift.py -a 2> /dev/null"
 }
 
 function watchswift {
-    watch -n 600 "python3 ~/work-in-progress/swift.py 2> /dev/null"
+    watch -n 300 "python3 ~/work-in-progress/swift.py 2> /dev/null"
 }
+
+alias auto="python3 ~/work-in-progress/swift.py -a 2> /dev/null"
+alias swift="python3 ~/work-in-progress/swift.py 2> /dev/null"
 
 
 #bind 'set colored-stats on'
