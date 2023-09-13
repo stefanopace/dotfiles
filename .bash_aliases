@@ -25,6 +25,8 @@ alias bat='batcat'
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
 alias j='eeks --configurations ~/dotfiles/eeks-configs/izi.json --source ~/dotfiles/eeks-configs/render-weather.sh'
 
+alias neofetch='neofetch --ascii ~/dotfiles/.coders_logo --ascii_colors 4 7'
+
 title () {
 	echo -en "\x1b]0;$@\x07"
 }
@@ -78,7 +80,7 @@ if [ -n "$PS1" ]; then
 	# PS2='│\e[K'
 fi
 
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -n "$GUAKE_TAB_UUID" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux new-session -A -s 0
 fi
 
