@@ -85,11 +85,11 @@ if command -v tmux &> /dev/null && [ -n "$PS1" ] && [ -n "$GUAKE_TAB_UUID" ] && 
 fi
 
 function watcha {
-    watch -nd 600 "python3 ~/work-in-progress/swift.py -a 2> /dev/null"
+    watch -n 600 "python3 ~/work-in-progress/swift.py -a 2> /dev/null"
 }
 
 function watchswift {
-    watch -nd 600 "python3 ~/work-in-progress/swift.py 2> /dev/null"
+    watch -n 600 "python3 ~/work-in-progress/swift.py 2> /dev/null"
 }
 
 
