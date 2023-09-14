@@ -95,6 +95,7 @@ function watchswift {
 alias auto="python3 ~/work-in-progress/swift.py -a 2> /dev/null"
 alias swift="python3 ~/work-in-progress/swift.py 2> /dev/null"
 
+export BC_ENV_ARGS="-lq"
 
 #bind 'set colored-stats on'
 # preexec () { 
