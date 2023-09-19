@@ -64,14 +64,21 @@ if [ -n "$PS1" ]; then
 	#PS0='\[\e[0m\]\[\e[2J\]'
 
 	PS1='$(
-		ec=$?; 
+		ec=$?;
+		nl=0;
+		if [ ${__cmdnbary[\#]+"set"} ]; then
+			nl=1;
+		fi
+		if [ $nl -eq 1 ]; then
+			echo -en "\e[1A\e[106m\e[K\[\e[96;49;1;7m\]█\[\e[96;40;1;7m\]\[\e[27m\]\n"
+		fi
 		if [ $ec -ne 0 ]; then 
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
 		else 
 			echo -en "\[\e[96;49;1;7m\]\[\e[27m\]"
 		fi
-		echo -e "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[0m\e[40;1m\e[K\]"
-	)'
+		echo -e "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[0m\e[40;1m\e[K\]";
+	)${__cmdnbary[\#]=}'
 	PS0='\[\e[0m\e[K\]'
 	PS2='\[\e[96;40;1m\]▌\[\e[39m\e[K\]'
 
