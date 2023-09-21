@@ -82,9 +82,13 @@ if [ -n "$PS1" ]; then
 			echo -en "\e[2A"
 			echo -en "\e[0m\e[K\n"
 		fi
-		#bar="\w [$(git status -sb | head -n 1)]"
+		branch=$(git status -sb 2> /dev/null | head -n 1 | colrm 1 3)
+		bar=""
+		if [ -n "$branch" ]; then
+			bar="[$branch]"
+		fi
 		if [ $nl -gt 0 ]; then
-			echo -en "\e[106m\e[K\[\e[96;49;1;7m\]█\[\e[0;7;96;44m\]$bar\[\e[96;40;1;7m\]\[\e[27m\]\n"
+			echo -en "\e[106m\e[K\[\e[96;49;1;7m\]█\[\e[0;7;96;40m\]$bar\[\e[96;40;1;7m\]\[\e[27m\]\n"
 		fi
 		if [ $ec -ne 0 ]; then 
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
