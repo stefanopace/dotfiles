@@ -65,12 +65,27 @@ if [ -n "$PS1" ]; then
 
 	PS1='$(
 		ec=$?;
-		nl=0;
 		if [ ${__cmdnbary[\#]+"set"} ]; then
-			nl=1;
+			nl="$(cat ~/.promptlen)";
+			let "nl=nl+1";
+			echo "$nl" > ~/.promptlen
+		else  
+			nl="0"
+			echo "0" > ~/.promptlen
 		fi
-		if [ $nl -eq 1 ]; then
-			echo -en "\e[1A\e[106m\e[K\[\e[96;49;1;7m\]█\[\e[96;40;1;7m\]\[\e[27m\]\n"
+		if [ $nl -gt 0 ]; then
+			#bar="\w [$(git status -sb | head -n 1)]"
+			echo -en "\e[${nl}A"
+			for i in $(seq $nl | tac)
+			do
+				echo -en "\e[106m\e[K\[\e[96;49;1;7m\]"
+			    for j in $(seq $i)
+				do
+					echo -n "█"
+				done
+				bar=""
+				echo -en "\[\e[0;7;96;44m\]$bar\[\e[96;40;1;7m\]\[\e[27m\]\n"	
+			done
 		fi
 		if [ $ec -ne 0 ]; then 
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
