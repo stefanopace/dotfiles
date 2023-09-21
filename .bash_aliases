@@ -59,6 +59,8 @@ bind '"\e[Z": menu-complete-backward'
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
+echo "0" > /dev/shm/promptlen
+
 if [ -n "$PS1" ]; then
 	#PS1='\[\e[0;0H\]$(if [ $? -ne 0 ]; then echo "\[\e[37;41;1m\]\W\[\e[40;31m\]\[\e[s\]\[\e[0m\]\[\e[40;1m\]"; else echo "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[s\]\[\e[0m\]\[\e[40;1m\]"; fi)\[\e[K\]'
 	#PS0='\[\e[0m\]\[\e[2J\]'
@@ -66,16 +68,15 @@ if [ -n "$PS1" ]; then
 	PS1='$(
 		ec=$?;
 		if [ ${__cmdnbary[\#]+"set"} ]; then
-			nl="$(cat ~/.promptlen)";
+			nl="$(cat /dev/shm/promptlen)";
 			let "nl=nl+1";
-			echo "$nl" > ~/.promptlen
+			echo "$nl" > /dev/shm/promptlen
 		else  
 			nl="0"
-			echo "0" > ~/.promptlen
+			echo "0" > /dev/shm/promptlen
 		fi
 		if [ $nl -eq 1 ]; then
 			echo -en "\e[1A"
-			
 		fi
 		if [ $nl -gt 1 ]; then
 			echo -en "\e[2A"
