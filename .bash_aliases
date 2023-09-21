@@ -73,19 +73,17 @@ if [ -n "$PS1" ]; then
 			nl="0"
 			echo "0" > ~/.promptlen
 		fi
+		if [ $nl -eq 1 ]; then
+			echo -en "\e[1A"
+			
+		fi
+		if [ $nl -gt 1 ]; then
+			echo -en "\e[2A"
+			echo -en "\e[0m\e[K\n"
+		fi
+		#bar="\w [$(git status -sb | head -n 1)]"
 		if [ $nl -gt 0 ]; then
-			#bar="\w [$(git status -sb | head -n 1)]"
-			echo -en "\e[${nl}A"
-			for i in $(seq $nl | tac)
-			do
-				echo -en "\e[106m\e[K\[\e[96;49;1;7m\]"
-			    for j in $(seq $i)
-				do
-					echo -n "█"
-				done
-				bar=""
-				echo -en "\[\e[0;7;96;44m\]$bar\[\e[96;40;1;7m\]\[\e[27m\]\n"	
-			done
+			echo -en "\e[106m\e[K\[\e[96;49;1;7m\]█\[\e[0;7;96;44m\]$bar\[\e[96;40;1;7m\]\[\e[27m\]\n"
 		fi
 		if [ $ec -ne 0 ]; then 
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
