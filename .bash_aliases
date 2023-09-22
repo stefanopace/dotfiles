@@ -59,21 +59,21 @@ bind '"\e[Z": menu-complete-backward'
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
-echo "0" > "/dev/shm/promptlen$$"
+mkdir -p "/dev/shm/promptlen/"
+echo "0" > "/dev/shm/promptlen/$$"
 
 if [ -n "$PS1" ]; then
 	#PS1='\[\e[0;0H\]$(if [ $? -ne 0 ]; then echo "\[\e[37;41;1m\]\W\[\e[40;31m\]\[\e[s\]\[\e[0m\]\[\e[40;1m\]"; else echo "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[s\]\[\e[0m\]\[\e[40;1m\]"; fi)\[\e[K\]'
 	#PS0='\[\e[0m\]\[\e[2J\]'
-
 	PS1='$(
 		ec=$?;
 		if [ ${__cmdnbary[\#]+"set"} ]; then
-			nl="$(cat /dev/shm/promptlen$$)";
+			nl="$(cat /dev/shm/promptlen/$$)";
 			let "nl=nl+1";
-			echo "$nl" > "/dev/shm/promptlen$$"
+			echo "$nl" > "/dev/shm/promptlen/$$"
 		else  
 			nl="0"
-			echo "0" > "/dev/shm/promptlen$$"
+			echo "0" > "/dev/shm/promptlen/$$"
 		fi
 		if [ $nl -eq 1 ]; then
 			echo -en "\e[1A"
@@ -88,7 +88,19 @@ if [ -n "$PS1" ]; then
 		# 	bar="[$branch]"
 		# fi
 		if [ $nl -gt 0 ]; then
-			echo -en "\e[106m\e[K\[\e[96;49;1;7m\]█\[\e[0;7;96;40m\]$bar\[\e[96;40;1;7m\]\[\e[27m\]\n"
+			suptime="\t"
+			suptime=${suptime//0/⁰}
+			suptime=${suptime//1/¹}
+			suptime=${suptime//2/²}
+			suptime=${suptime//3/³}
+			suptime=${suptime//4/⁴}
+			suptime=${suptime//5/⁵}
+			suptime=${suptime//6/⁶}
+			suptime=${suptime//7/⁷}
+			suptime=${suptime//8/⁸}
+			suptime=${suptime//9/⁹}
+			suptime=${suptime//:/ }
+			echo -en "\e[106m\e[K\[\e[96;49;1;7m\]█\[\e[0;7;96;44m\]$suptime\[\e[96;40;1;7m\]\[\e[27m\]\n"
 		fi
 		if [ $ec -ne 0 ]; then 
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
