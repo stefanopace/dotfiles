@@ -10,7 +10,7 @@
 			"execute": ["ls -p ~/dotfiles/colors | grep -v /"],
 			"handlers": [ {
 				"type": "leaf",
-				"execute": ["ln -f -s ~/dotfiles/colors/{theme} ~/.urxvt-theme; xrdb -merge ~/.Xresources; ~/dotfiles/colors/scripts/change-color.sh ~/.urxvt-theme"]
+				"execute": ["~/dotfiles/colors/scripts/parse-color.sh ~/dotfiles/colors/{theme}"]
 			} ]
 		},
 		{
