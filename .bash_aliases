@@ -89,6 +89,7 @@ if [ -n "$PS1" ]; then
 		# fi
 		if [ $nl -gt 0 ]; then
 			suptime="\t"
+			suptime=${suptime//:/}
 			suptime=${suptime//0/⁰}
 			suptime=${suptime//1/¹}
 			suptime=${suptime//2/²}
@@ -99,8 +100,7 @@ if [ -n "$PS1" ]; then
 			suptime=${suptime//7/⁷}
 			suptime=${suptime//8/⁸}
 			suptime=${suptime//9/⁹}
-			suptime=${suptime//:/ }
-			echo -en "\e[106m\e[K\[\e[96;49;1;7m\]█\[\e[0;7;96;44m\]$suptime\[\e[96;40;1;7m\]\[\e[27m\]\n"
+			echo -en "\[\e[0;106m\e[K\e[96;49;7m\]█\[\e[44m\]$suptime\[\e[40m\]\n"
 		fi
 		if [ $ec -ne 0 ]; then 
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
