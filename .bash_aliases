@@ -58,6 +58,9 @@ bind 'TAB:menu-complete'
 bind '"\e[Z": menu-complete-backward'
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
+bind "set completion-ignore-case on"
+bind "set colored-completion-prefix on"
+bind "set colored-stats on"
 
 mkdir -p "/dev/shm/promptlen/"
 echo "0" > "/dev/shm/promptlen/$$"
@@ -67,41 +70,7 @@ if [ -n "$PS1" ]; then
 	#PS0='\[\e[0m\]\[\e[2J\]'
 	PS1='$(
 		ec=$?;
-		if [ ${__cmdnbary[\#]+"set"} ]; then
-			nl="$(cat /dev/shm/promptlen/$$)";
-			let "nl=nl+1";
-			echo "$nl" > "/dev/shm/promptlen/$$"
-		else  
-			nl="0"
-			echo "0" > "/dev/shm/promptlen/$$"
-		fi
-		if [ $nl -eq 1 ]; then
-			echo -en "\e[1A"
-		fi
-		if [ $nl -gt 1 ]; then
-			echo -en "\e[2A"
-			echo -en "\e[0m\e[K\n"
-		fi
-		# branch=$(git status -sb 2> /dev/null | head -n 1 | colrm 1 3)
-		# bar=""
-		# if [ -n "$branch" ]; then
-		# 	bar="[$branch]"
-		# fi
-		if [ $nl -gt 0 ]; then
-			suptime="\t"
-			suptime=${suptime//:/}
-			suptime=${suptime//0/⁰}
-			suptime=${suptime//1/¹}
-			suptime=${suptime//2/²}
-			suptime=${suptime//3/³}
-			suptime=${suptime//4/⁴}
-			suptime=${suptime//5/⁵}
-			suptime=${suptime//6/⁶}
-			suptime=${suptime//7/⁷}
-			suptime=${suptime//8/⁸}
-			suptime=${suptime//9/⁹}
-			echo -en "\[\e[0;106m\e[K\e[96;49;7m\]█\[\e[44m\]$suptime\[\e[40m\]\n"
-		fi
+		echo -en "\[\e[0m\e[J\]"
 		if [ $ec -ne 0 ]; then 
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
 		else 
