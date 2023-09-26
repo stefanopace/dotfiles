@@ -70,16 +70,22 @@ if [ -n "$PS1" ]; then
 	#PS0='\[\e[0m\]\[\e[2J\]'
 	PS1='$(
 		ec=$?;
-		echo -en "\[\e[0m\e[J\]"
 		if [ $ec -ne 0 ]; then 
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
 		else 
 			echo -en "\[\e[96;49;1;7m\]\[\e[27m\]"
 		fi
 		echo -e "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[0m\e[40;1m\e[K\]";
-	)${__cmdnbary[\#]=}'
+	)'
 	PS0='\[\e[0m\e[K\]'
-	PS2='\[\e[96;40;1m\]▌\[\e[39m\e[K\]'
+	PS2='$(
+		ec=$?;
+		if [ $ec -ne 0 ]; then 
+			echo -en "\[\e[27m\e[31;41;1m\]$ec \[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
+		fi
+		echo -e "\[\e[96;106;1;7m\] \W\[\e[96;40;27;39m\e[K\] ";
+	)'
+	#'\[\e[96;106;1;7m\] \W\[\e[96;40;27;39m\e[K\] '
 
 	# PS1='$(if [ $? -ne 0 ]; then tput cup `tput lines`; echo -e "\e[37;41;1m\W\e[40;31m\e[0m\e[40;1m"; else tput cup `tput lines`; echo "\e[30;106;1m\W\e[40;96m\e[0m\e[40;1m"; fi)\e[K'
 	# PS0='$(tput reset)'
