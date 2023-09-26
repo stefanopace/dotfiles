@@ -89,18 +89,19 @@ if [ -n "$PS1" ]; then
 		else
 			et=$(bash_getstoptime $ROOTPID);
 			if [[ ${#et} -ge 5 ]]; then	
-				et=${et//./·}
-				et=${et//0/⁰}
-				et=${et//1/¹}
-				et=${et//2/²}
-				et=${et//3/³}
-				et=${et//4/⁴}
-				et=${et//5/⁵}
-				et=${et//6/⁶}
-				et=${et//7/⁷}
-				et=${et//8/⁸}
-				et=${et//9/⁹}
-				echo -en "$et";
+				et=${et//./.}
+				et=${et//0/₀}
+				et=${et//1/₁}
+				et=${et//2/₂}
+				et=${et//3/₃}
+				et=${et//4/₄}
+				et=${et//5/₅}
+				et=${et//6/₆}
+				et=${et//7/₇}
+				et=${et//8/₈}
+				et=${et//9/₉}
+				echo -en "\[\e[93m\]ₜ₌$et\n";
+
 			fi
 		fi
 		if [ $ec -ne 0 ]; then 
