@@ -100,7 +100,7 @@ if [ -n "$PS1" ]; then
 				et=${et//7/₇}
 				et=${et//8/₈}
 				et=${et//9/₉}
-				echo -en "\[\e[93m\]ₜ₌$et\n";
+				echo -en " \[\e[93m\]ₜ₌$et\n";
 
 			fi
 		fi
