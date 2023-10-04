@@ -82,8 +82,8 @@ bash_getstarttime $ROOTPID
 
 if [ -n "$PS1" ]; then
 	PS1='$(
-		echo -en "\[\e[0m\]"
 		ec=$?;
+		echo -en "\[\e[0m\e[J\]"
 		if [ ${__cmdnbary[\#]+"set"} ]; then
 			true
 		else
@@ -100,11 +100,10 @@ if [ -n "$PS1" ]; then
 				et=${et//7/₇}
 				et=${et//8/₈}
 				et=${et//9/₉}
-				echo -en " \[\e[93m\]ₜ₌$et\n";
-
+				echo -en " \[\e[96m\]⌟\[\e[93m\]$et\n";
 			fi
 		fi
-		if [ $ec -ne 0 ]; then 
+		if [ $ec -ne 0 ]; then
 			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
 		else 
 			echo -en "\[\e[96;49;1;7m\]\[\e[27m\]"
