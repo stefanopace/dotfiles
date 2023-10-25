@@ -5,10 +5,11 @@ alias ll='ls -lahFtr'
 alias la='ls -A'
 
 alias cdow='cd ~/downloads'
-alias cdot='cd ~/dotfiles'
+alias cdot='cd ~/.dotfiles'
 alias cdside='cd ~/side-projects'
 alias cdwip='cd ~/work-in-progress'
 alias cdproj='cd ~/projects'
+alias cdfun='cd ~/fun'
 
 alias each='xargs -L1 -I{}'
 alias gatto='cat'
