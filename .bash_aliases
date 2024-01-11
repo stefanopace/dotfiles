@@ -24,10 +24,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | sed -E "s|  +|  |"'
 alias bat='batcat'
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
-alias j='eeks --configurations ~/dotfiles/eeks-configs/izi.json --source ~/dotfiles/eeks-configs/render-weather.sh'
+alias j='eeks --configurations ~/.dotfiles/eeks-configs/izi.json --source ~/.dotfiles/eeks-configs/render-weather.sh'
 
-alias neofetch='neofetch --ascii ~/dotfiles/.coders_logo --ascii_colors 4 7'
+alias neofetch='neofetch --ascii ~/.dotfiles/.coders_logo --ascii_colors 4 7'
 
+alias aseprite='/home/stefano/.steam/root/steamapps/common/Aseprite/aseprite'
 title () {
 	echo -en "\x1b]0;$@\x07"
 }
@@ -141,5 +142,6 @@ function watchswift {
 
 alias auto="python3 ~/work-in-progress/swift.py -a 2> /dev/null"
 alias swift="python3 ~/work-in-progress/swift.py 2> /dev/null"
+alias seen="mv /home/stefano/work-in-progress/.last_show_ad /home/stefano/work-in-progress/.last_seen_ad"
 
 export BC_ENV_ARGS="-lq"
