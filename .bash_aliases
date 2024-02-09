@@ -32,7 +32,7 @@ alias aseprite='/home/stefano/.steam/root/steamapps/common/Aseprite/aseprite'
 title () {
 	echo -en "\x1b]0;$@\x07"
 }
-
+alias updategooglechrome='sudo apt-get --only-upgrade install google-chrome-stable'
 ssh-generate-for-github () {
 	if test ! -f "~/.ssh/id_rsa.pub"; then
 		if test -f "~/.ssh/id_rsa"; then
