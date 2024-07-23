@@ -25,6 +25,7 @@ alias dockerps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}" | se
 alias bat='batcat'
 alias vimcheatsheet='surf https://vim.rtorr.com/lang/it'
 alias j='eeks --configurations ~/.dotfiles/eeks-configs/izi.json --source ~/.dotfiles/eeks-configs/render-weather.sh'
+alias gitb='git branch --sort=-committerdate | head'
 
 alias neofetch='neofetch --ascii ~/.dotfiles/.coders_logo --ascii_colors 4 7'
 
@@ -67,6 +68,54 @@ function roundseconds (){
   echo m=$1";h=0.5;scale=4;t=1000;if(m<0) h=-0.5;a=m*t+h;scale=3;a/t;" | bc
 }
 
+function formattime (){
+    # format seconds in "d h m s"
+    t=$1
+
+	if [[ $t == *.* ]]; then
+		s=${t%.*}
+		c=${t#*.}
+	else
+		s=$t
+		c=0
+	fi
+    
+    ((sec=s%60, s/=60, min=s%60, s/=60, hrs=s%24, s/=24, days=s))
+    
+    if [[ $days -gt 0 ]]; then
+        out=$(printf "%dd %dh %dm %d.%ss" $days $hrs $min $sec $c)
+    elif [[ $hrs -gt 0 ]]; then
+        out=$(printf "%dh %dm %d.%ss" $hrs $min $sec $c)
+    elif [[ $min -gt 0 ]]; then
+        out=$(printf "%dm %d.%ss" $min $sec $c)
+    elif [[ $sec -gt 0 ]]; then
+        out=$(printf "%d.%s" $sec $c)
+    elif (( $(echo "$c >= 300" | bc) )); then
+        out=$(printf "0.%s" $c)
+    else
+        out=""
+    fi
+
+    if [[ -n $out ]]; then
+        out=${out//./.};
+        out=${out//0/₀};
+        out=${out//1/₁};
+        out=${out//2/₂};
+        out=${out//3/₃};
+        out=${out//4/₄};
+        out=${out//5/₅};
+        out=${out//6/₆};
+        out=${out//7/₇};
+        out=${out//8/₈};
+        out=${out//9/₉};
+        out=${out//d/d};
+        out=${out//h/ₕ};
+        out=${out//m/ₘ};
+        out=${out//s/ₛ};
+    fi
+	echo $out;	
+}
+
 function bash_getstarttime (){
   # places the epoch time in ns into shared memory
   date +%s.%N >"/dev/shm/${USER}.bashtime.${1}"
@@ -90,18 +139,9 @@ if [ -n "$PS1" ]; then
 			true
 		else
 			et=$(bash_getstoptime $ROOTPID);
-			if [[ ${#et} -ge 5 ]]; then	
-				et=${et//./.}
-				et=${et//0/₀}
-				et=${et//1/₁}
-				et=${et//2/₂}
-				et=${et//3/₃}
-				et=${et//4/₄}
-				et=${et//5/₅}
-				et=${et//6/₆}
-				et=${et//7/₇}
-				et=${et//8/₈}
-				et=${et//9/₉}
+			et=$(formattime $et);
+
+			if [ ! -z "$et" ]; then	
 				echo -en " \[\e[96m\]⌟\[\e[93m\]$et\n";
 			fi
 		fi

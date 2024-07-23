@@ -7,10 +7,10 @@
 			"type": "dynamic",
 			"set": [ { "name": "theme" } ],
 			"match": [ { "name": "action", "type": "exact", "value": "Cambia colori terminale" } ],
-			"execute": ["ls -p ~/dotfiles/colors | grep -v /"],
+			"execute": ["ls -p ~/.dotfiles/colors | grep -v /"],
 			"handlers": [ {
 				"type": "leaf",
-				"execute": ["~/dotfiles/colors/scripts/parse-color.sh ~/dotfiles/colors/{theme}"]
+				"execute": ["~/.dotfiles/colors/scripts/parse-color.sh ~/.dotfiles/colors/{theme}"]
 			} ]
 		},
 		{
