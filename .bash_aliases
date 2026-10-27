@@ -31,6 +31,7 @@ alias j='eeks --configurations ~/.dotfiles/eeks-configs/izi.json --source ~/.dot
 alias gitb='git branch --sort=-committerdate | head'
 
 alias neofetch='neofetch --ascii ~/.dotfiles/.coders_logo --ascii_colors 4 7'
+alias fastfetch='fastfetch --logo-type file --logo ~/.dotfiles/.coders_logo.fastfetch --logo-color-1 blue --logo-color-2 white'
 
 alias aseprite='/home/stefano/.steam/root/steamapps/common/Aseprite/aseprite'
 title () {
