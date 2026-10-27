@@ -10,6 +10,9 @@ alias cdside='cd ~/side-projects'
 alias cdwip='cd ~/work-in-progress'
 alias cdproj='cd ~/projects'
 alias cdfun='cd ~/fun'
+alias cdcop='cd ~/projects/biorsaf/bs-modules/services/bs-copilot-service'
+alias cdeks='cd ~/projects/biorsaf/bs-eks-deployment'
+alias cdmig='cd ~/projects/biorsaf/bs-modules-migrations'
 
 alias each='xargs -L1 -I{}'
 alias gatto='cat'
@@ -50,6 +53,8 @@ ssh-generate-for-github () {
 }
 
 PATH=$PATH:/home/stefano/tools/bin
+PATH=$PATH:/home/stefano/.asdf/shims/
+PATH="$HOME/.local/bin:$PATH"
 
 export EDITOR=vim
 
@@ -134,7 +139,7 @@ bash_getstarttime $ROOTPID
 if [ -n "$PS1" ]; then
 	PS1='$(
 		ec=$?;
-		echo -en "\[\e[0m\e[J\]"
+		echo -en "\[\e[0m\]\e[J\]"
 		if [ ${__cmdnbary[\#]+"set"} ]; then
 			true
 		else
@@ -146,19 +151,19 @@ if [ -n "$PS1" ]; then
 			fi
 		fi
 		if [ $ec -ne 0 ]; then
-			echo -en "\[\e[31;49;7m\]\[\e[27m\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
+			echo -en "\[\e[31;49;7m\]\[\e[27m\]\e[37;41;1m\]$ec\[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
 		else 
 			echo -en "\[\e[96;49;1;7m\]\[\e[27m\]"
 		fi
-		echo -e "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[0m\e[40;1m\e[K\]";
+		echo -e "\[\e[30;106;1m\]\W\[\e[40;96m\]\[\e[0m\]\e[40;1m\]\e[K\]";
 	)${__cmdnbary[\#]=}'
-	PS0='\[\e[0m\e[K\]$(bash_getstarttime $ROOTPID)'
+	PS0='\[\e[0m\]\e[K\]$(bash_getstarttime $ROOTPID)'
 	PS2='$(
 		ec=$?;
 		if [ $ec -ne 0 ]; then 
-			echo -en "\[\e[27m\e[31;41;1m\]$ec \[\e[106;31m\]\[\e[0m\e[40;1m\]"; 
+			echo -en "\[\e[27m\]\e[31;41;1m\]$ec \[\e[106;31m\]\[\e[0m\]\e[40;1m\]"; 
 		fi
-		echo -e "\[\e[96;106;1;7m\] \W\[\e[96;40;27;39m\e[K\] ";
+		echo -e "\[\e[96;106;1;7m\] \W\[\e[96;40;27;39m\]\e[K\] ";
 	)'
 fi
 
@@ -183,5 +188,7 @@ function watchswift {
 alias auto="python3 ~/work-in-progress/swift.py -a 2> /dev/null"
 alias swift="python3 ~/work-in-progress/swift.py 2> /dev/null"
 alias seen="mv /home/stefano/work-in-progress/.last_show_ad /home/stefano/work-in-progress/.last_seen_ad"
+alias idea="/home/stefano/idea/bin/idea"
 
+export FZF_DEFAULT_COMMAND='find .'
 export BC_ENV_ARGS="-lq"
